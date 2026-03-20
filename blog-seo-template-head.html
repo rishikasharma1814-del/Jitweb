@@ -1,0 +1,57 @@
+<!--
+  BLOG POST SEO TEMPLATE - Copy this block into each blog post <head>.
+  Replace placeholders: ARTICLE_TITLE, META_DESC, CANONICAL_URL, OG_IMAGE_URL, PUBLISH_DATE (YYYY-MM-DD), SCHEMA_HEADLINE, SCHEMA_DESC, SCHEMA_IMAGE, SCHEMA_URL, SCHEMA_DATE.
+  Base URL used: https://jewarinternational.com
+-->
+<title>ARTICLE_TITLE | Jewar International Technologies</title>
+<meta name="description" content="META_DESC" />
+
+<link rel="canonical" href="CANONICAL_URL" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:url" content="CANONICAL_URL" />
+<meta property="og:title" content="ARTICLE_TITLE" />
+<meta property="og:description" content="META_DESC" />
+<meta property="og:image" content="OG_IMAGE_URL" />
+<meta property="og:site_name" content="Jewar International Technologies" />
+<meta property="og:locale" content="en_US" />
+<meta property="article:published_time" content="PUBLISH_DATE" />
+<meta property="article:author" content="Jewar International Technologies" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ARTICLE_TITLE" />
+<meta name="twitter:description" content="META_DESC" />
+<meta name="twitter:image" content="OG_IMAGE_URL" />
+
+<!-- Article schema (JSON-LD) - place once per post, before </head> or after <body> -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SCHEMA_HEADLINE",
+  "description": "SCHEMA_DESC",
+  "image": "SCHEMA_IMAGE",
+  "url": "SCHEMA_URL",
+  "datePublished": "SCHEMA_DATE",
+  "dateModified": "SCHEMA_DATE",
+  "author": {
+    "@type": "Organization",
+    "name": "Jewar International Technologies",
+    "url": "https://jewarinternational.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jewar International Technologies",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jewarinternational.com/assets/imgs/logo/LogoNew1.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "SCHEMA_URL"
+  }
+}
+</script>

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap (replace with your live domain if different)
+Sitemap: https://jewarinternational.com/sitemap.xml
+
+# Optional: block template/admin paths if you add them later
+# Disallow: /admin/
+# Disallow: /private/
