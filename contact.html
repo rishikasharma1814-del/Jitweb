@@ -905,8 +905,8 @@
       // Show full-form loader
       document.getElementById("form-loader").style.display = "flex";
 
-      // Hosted PHP API (not on Netlify — use full URL or browser hits jewarinternational.com/send-mail.php → 405).
-      const CONTACT_API_URL = "https://jitapi.infinityfree.me/send-mail.php";
+      // Vercel Serverless: /api/contact → https://jitapi.infinityfree.me/send-mail.php (same-origin, no CORS).
+      const CONTACT_API_URL = "/api/contact";
 
       const formData = new URLSearchParams();
       formData.append("name", name);

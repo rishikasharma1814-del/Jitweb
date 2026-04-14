@@ -1,0 +1,8 @@
+DirectoryIndex index.php index.html index.htm index2.html
+
+<IfModule mod_headers.c>
+# CORS (allow all origins for now)
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+</IfModule>

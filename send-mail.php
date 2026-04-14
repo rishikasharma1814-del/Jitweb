@@ -1,20 +1,63 @@
 <?php
-header("Access-Control-Allow-Origin: *"); // or restrict to a specific origin
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
+// CORS first — InfinityFree / proxies may serve HTML before PHP; when PHP runs, these must be present.
+header("Access-Control-Allow-Origin: *", true);
+header("Access-Control-Allow-Methods: POST, OPTIONS, GET", true);
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With", true);
+header("Access-Control-Max-Age: 86400", true);
+header("Vary: Origin", true);
+header("Content-Type: application/json; charset=utf-8", true);
+
+// If a runtime fatal happens later, still return JSON + CORS headers.
+register_shutdown_function(function () {
+    $error = error_get_last();
+    if ($error !== null) {
+        if (!headers_sent()) {
+            header("Access-Control-Allow-Origin: *");
+            header("Access-Control-Allow-Methods: POST, OPTIONS");
+            header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+            header("Content-Type: application/json");
+        }
+        http_response_code(500);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Server fatal error",
+            "detail" => $error["message"] ?? "Unknown error",
+        ]);
+    }
+});
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
+// Quick CORS health check: GET /send-mail.php?ping=1
+if (isset($_GET['ping'])) {
+    echo json_encode(["status" => "success", "message" => "CORS OK"]);
+    exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(["status" => "error", "message" => "Method not allowed"]);
+    exit;
+}
+
 session_start();
 
 // =====================
 // Database connection
 // =====================
-$host = "localhost";
-$user = "xcbrfudmma";    
-$pass = "rrsAaD44H6";        
-$db   = "xcbrfudmma";
+$host = "sql305.infinityfree.com";
+$user = "if0_41462718";
+$pass = "XeIA4BTfsG0";
+$db   = "if0_41462718_jit";
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
-    die(json_encode(["status" => "error", "message" => "DB Connection failed: " . $conn->connect_error]));
+    http_response_code(500);
+    echo json_encode(["status" => "error", "message" => "DB Connection failed"]);
+    exit;
 }
 
 // =====================
@@ -39,57 +82,29 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-// =====================
-// Send Email via PHPMailer
-// =====================
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require __DIR__ . '/vendor/autoload.php';
-
-$mail = new PHPMailer(true);
-
-try {
-    $mail->SMTPDebug = 0; 
-$mail->isSMTP();
-$mail->Host       = 'smtp.gmail.com';
-$mail->SMTPAuth   = true;
-$mail->Username   = 'info@jewarinternational.com';   // ✅ Google Workspace email
-$mail->Password   = 'arec icnx qkpa owle';           // ✅ App Password (NOT your Gmail login password)
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;  // or 'tls'
-$mail->Port       = 587;
-
-$mail->setFrom('info@jewarinternational.com', 'Jewar International'); // ✅ sender
-$mail->addAddress('tushar@jewarinternational.com', 'Admin');          // ✅ recipient
-
-
-    // Content
-    $mail->isHTML(true);
-    $mail->Subject = "New Contact Form Submission";
-    $mail->Body    = "
-        <h2>New Contact Form Submission</h2>
-        <p><b>Name:</b> {$name}</p>
-        <p><b>Email:</b> {$email}</p>
-        <p><b>Phone:</b> {$phone}</p>
-        <p><b>Subject:</b> {$subject}</p>
-        <p><b>Message:</b><br>{$message}</p>
-    ";
-
-    // Try to send
-    if ($mail->send()) {
-        // =====================
-        // Save into database only if mail sent
-        // =====================
-        $stmt = $conn->prepare("INSERT INTO contact_messages (name, email, phone, subject, message) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $name, $email, $phone, $subject, $message);
-        $stmt->execute();
-        $stmt->close();
-
-        echo json_encode(["status" => "success", "message" => "Message sent and saved successfully"]);
-    } else {
-        echo json_encode(["status" => "error", "message" => "Mail could not be sent"]);
-    }
-
-} catch (Exception $e) {
-    echo json_encode(["status" => "error", "message" => "Mailer Error: " . $mail->ErrorInfo]);
+// Save into database first so form still works even if mail fails on host.
+$stmt = $conn->prepare("INSERT INTO contact_messages (name, email, phone, subject, message) VALUES (?, ?, ?, ?, ?)");
+if (!$stmt) {
+    http_response_code(500);
+    echo json_encode(["status" => "error", "message" => "Failed to prepare DB query"]);
+    exit;
 }
+$stmt->bind_param("sssss", $name, $email, $phone, $subject, $message);
+if (!$stmt->execute()) {
+    http_response_code(500);
+    echo json_encode(["status" => "error", "message" => "Failed to save message"]);
+    $stmt->close();
+    exit;
+}
+$stmt->close();
+
+// SMTP is disabled on InfinityFree free plans to avoid connection resets.
+$mailSent = false;
+$mailError = "SMTP disabled on hosting";
+
+echo json_encode([
+    "status" => "success",
+    "message" => $mailSent ? "Message sent and saved successfully" : "Message saved successfully",
+    "mail_sent" => $mailSent,
+    "mail_note" => $mailSent ? "" : $mailError
+]);
