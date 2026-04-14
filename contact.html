@@ -53,7 +53,6 @@
     <link rel="stylesheet" href="assets/css/progressbar.css" />
     <link rel="stylesheet" href="assets/css/meanmenu.min.css" />
     <link rel="stylesheet" href="assets/css/master.css" />
-    <link rel="stylesheet" href="style.css" />
 
   </head>
 
@@ -417,7 +416,7 @@
               <li>
                 <a href="mailto:info@jewarinternational.com">
                   <img
-                    src="assets/imgs/icon/email white.svg"
+                    src="assets/imgs/icon/email-white.svg"
                     alt="India Flag"
                     style="width: 16px; height: auto; vertical-align: middle"
                   />
@@ -529,7 +528,7 @@
                 <div class="col-xxl-7 col-xl-7 col-lg-7 col-md-7">
                   <div class="contact__form">
                     <div id="form-alert" class="mb-3" style="display: none;"></div>
-                    <form id="contact-form" name="contact" style="position: relative;">
+                    <form id="contact-form" name="contact" method="post" action="#" style="position: relative;">
                       <div class="row g-3">
                         <div class="col-xxl-6 col-xl-6 col-12">
                           <input
@@ -905,13 +904,8 @@
       // Show full-form loader
       document.getElementById("form-loader").style.display = "flex";
 
-<<<<<<< HEAD
-      // Same-origin Netlify Function → calls https://jitapi.infinityfree.me/send-mail.php (avoids browser CORS).
-      const CONTACT_API_URL = "/.netlify/functions/contact";
-=======
-      // Vercel Serverless: /api/contact → https://jitapi.infinityfree.me/send-mail.php (same-origin, no CORS).
+      // Vercel: /api/contact → https://jitapi.infinityfree.me/send-mail.php (same-origin; avoids CORS).
       const CONTACT_API_URL = "/api/contact";
->>>>>>> 6471f15
 
       const formData = new URLSearchParams();
       formData.append("name", name);
@@ -923,6 +917,8 @@
       const timeoutMs = 20000;
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort("Request timeout"), timeoutMs);
+
+      console.log("[Contact API] POST", CONTACT_API_URL);
 
       fetch(CONTACT_API_URL, {
         method: "POST",
@@ -945,9 +941,11 @@
             }
           }
           if (data && data.status === "success") {
+            console.log("[Contact API] success", data);
             showAlert(data.message || "Message sent successfully!", "success");
             document.getElementById("contact-form").reset();
           } else if (data && data.status === "error") {
+            console.warn("[Contact API] error payload", data);
             showAlert(data.message || "Failed to send message.", "error");
           } else {
             showAlert(
