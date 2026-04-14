@@ -905,8 +905,13 @@
       // Show full-form loader
       document.getElementById("form-loader").style.display = "flex";
 
+<<<<<<< HEAD
       // Same-origin Netlify Function → calls https://jitapi.infinityfree.me/send-mail.php (avoids browser CORS).
       const CONTACT_API_URL = "/.netlify/functions/contact";
+=======
+      // Vercel Serverless: /api/contact → https://jitapi.infinityfree.me/send-mail.php (same-origin, no CORS).
+      const CONTACT_API_URL = "/api/contact";
+>>>>>>> 6471f15
 
       const formData = new URLSearchParams();
       formData.append("name", name);
