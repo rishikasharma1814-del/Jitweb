@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Pretty URL serves the real file (GET + POST). Avoids 404 when browser is on /contact.
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[functions]
+  node_bundler = "esbuild"

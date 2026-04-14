@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(200); exit; }
 header("Content-Type: application/json");
 
 // DB Connection
-$conn = new mysqli('localhost', 'xcbrfudmma', 'rrsAaD44H6', 'xcbrfudmma');
+$conn = new mysqli('sql305.infinityfree.com', 'if0_41462718', 'XeIA4BTfsG0', 'if0_41462718_jit');
 if ($conn->connect_error) {
     die(json_encode(["status" => "error", "message" => "DB Connection failed"]));
 }

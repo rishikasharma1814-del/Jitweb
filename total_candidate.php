@@ -11,7 +11,7 @@ header("Content-Type: application/json");
 
 // DB Connection (Use your credentials here)
 // WARNING: DB credentials are hardcoded and visible in this script.
-$conn = new mysqli('localhost', 'xcbrfudmma', 'rrsAaD44H6', 'xcbrfudmma');
+$conn = new mysqli('sql305.infinityfree.com', 'if0_41462718', 'XeIA4BTfsG0', 'if0_41462718_jit');
 if ($conn->connect_error) { die(json_encode(["status"=>"error","message"=>"DB Connection failed"])); }
 
 /*
