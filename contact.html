@@ -529,7 +529,7 @@
                 <div class="col-xxl-7 col-xl-7 col-lg-7 col-md-7">
                   <div class="contact__form">
                     <div id="form-alert" class="mb-3" style="display: none;"></div>
-                    <form id="contact-form" style="position: relative;" >
+                    <form id="contact-form" name="contact" style="position: relative;">
                       <div class="row g-3">
                         <div class="col-xxl-6 col-xl-6 col-12">
                           <input
@@ -905,33 +905,67 @@
       // Show full-form loader
       document.getElementById("form-loader").style.display = "flex";
 
-      // Prepare form data
-      const formData = new FormData();
+      // Hosted PHP API (not on Netlify — use full URL or browser hits jewarinternational.com/send-mail.php → 405).
+      const CONTACT_API_URL = "https://jitapi.infinityfree.me/send-mail.php";
+
+      const formData = new URLSearchParams();
       formData.append("name", name);
       formData.append("email", email);
       formData.append("phone", phone);
       formData.append("subject", subject);
       formData.append("message", message);
 
-      fetch("send-mail.php", {
+      const timeoutMs = 20000;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort("Request timeout"), timeoutMs);
+
+      fetch(CONTACT_API_URL, {
         method: "POST",
-        body: formData,
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
+        body: formData.toString(),
+        signal: controller.signal,
       })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.status === "success") {
+        .then(async (res) => {
+          clearTimeout(timeoutId);
+          const raw = await res.text();
+          let data = null;
+          if (raw && raw.trim()) {
+            try {
+              data = JSON.parse(raw);
+            } catch (e) {
+              console.error("[Contact API] Non-JSON response:", raw.slice(0, 200));
+            }
+          }
+          if (data && data.status === "success") {
             showAlert(data.message || "Message sent successfully!", "success");
             document.getElementById("contact-form").reset();
-          } else {
+          } else if (data && data.status === "error") {
             showAlert(data.message || "Failed to send message.", "error");
+          } else {
+            showAlert(
+              res.ok
+                ? "Unexpected response from server. Please try again or email info@jewarinternational.com."
+                : "Could not send your message (HTTP " + res.status + "). Please email info@jewarinternational.com.",
+              "error"
+            );
           }
         })
         .catch((err) => {
-          console.error(err);
-          showAlert("Something went wrong. Please try again.", "error");
+          clearTimeout(timeoutId);
+          console.error("[Contact API]", err);
+          if (err && err.name === "AbortError") {
+            showAlert("Request timed out. Please check your connection and try again.", "error");
+          } else {
+            showAlert(
+              "Could not reach the server (CORS or network). If this persists, email info@jewarinternational.com.",
+              "error"
+            );
+          }
         })
         .finally(() => {
-          // Hide loader
           document.getElementById("form-loader").style.display = "none";
         });
     });
