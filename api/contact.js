@@ -1,39 +1,8 @@
 /**
- * Vercel Serverless: browser → same-origin /api/contact → InfinityFree PHP (no CORS in browser).
- * Optional: set RESEND_API_KEY + CONTACT_TO_EMAIL in Vercel env if upstream returns HTML bot-wall.
+ * Vercel Serverless: browser → /api/contact → Resend (transactional email API).
+ * Requires RESEND_API_KEY in Vercel env (Project → Settings → Environment Variables).
+ * Optional: CONTACT_TO_EMAIL (default info@jewarinternational.com), CONTACT_FROM_EMAIL.
  */
-
-const UPSTREAM_URL = "https://jitapi.infinityfree.me/send-mail.php";
-
-const BROWSER_HEADERS = {
-  "User-Agent":
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-  Accept: "application/json, text/plain, */*",
-  "Accept-Language": "en-US,en;q=0.9",
-};
-
-function looksLikeHostBotWall(text) {
-  const t = (text || "").trim();
-  if (!t) return true;
-  const lower = t.slice(0, 2000).toLowerCase();
-  return (
-    lower.startsWith("<!doctype") ||
-    lower.startsWith("<html") ||
-    lower.includes("aes.js") ||
-    lower.includes("function tonumbers(")
-  );
-}
-
-function cookieHeaderFromResponse(res) {
-  const h = res.headers;
-  if (typeof h.getSetCookie === "function") {
-    const parts = h.getSetCookie();
-    if (!parts || !parts.length) return "";
-    return parts.map((c) => c.split(";")[0].trim()).filter(Boolean).join("; ");
-  }
-  const single = h.get("set-cookie");
-  return single ? single.split(";")[0].trim() : "";
-}
 
 function getPayload(req) {
   const b = req.body;
@@ -59,33 +28,15 @@ function getPayload(req) {
   };
 }
 
-async function postToInfinityFree(formBody) {
-  const warm = await fetch(`${UPSTREAM_URL}?ping=1`, {
-    method: "GET",
-    headers: { ...BROWSER_HEADERS },
-  });
-  const cookie = cookieHeaderFromResponse(warm);
-
-  return fetch(UPSTREAM_URL, {
-    method: "POST",
-    headers: {
-      ...BROWSER_HEADERS,
-      "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-      Origin: "https://jitapi.infinityfree.me",
-      Referer: "https://jitapi.infinityfree.me/",
-      ...(cookie ? { Cookie: cookie } : {}),
-    },
-    body: formBody,
-  });
-}
-
 async function sendViaResend(payload) {
   const key = process.env.RESEND_API_KEY;
-  if (!key) return null;
+  if (!key) {
+    return { ok: false, detail: "RESEND_API_KEY is not configured" };
+  }
 
   const to = process.env.CONTACT_TO_EMAIL || "info@jewarinternational.com";
-  const from =
-    process.env.CONTACT_FROM_EMAIL || "JIT Contact Form <onboarding@resend.dev>";
+  const senderAddress = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
+  const from = `${payload.name} via JIT Website <${senderAddress}>`;
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -135,43 +86,26 @@ async function handler(req, res) {
 
   try {
     const payload = getPayload(req);
-    const form = new URLSearchParams();
-    form.set("name", payload.name || "");
-    form.set("email", payload.email || "");
-    form.set("phone", payload.phone || "");
-    form.set("subject", payload.subject || "");
-    form.set("message", payload.message || "");
-    const formBody = form.toString();
 
-    const upstream = await postToInfinityFree(formBody);
-    const raw = await upstream.text();
-
-    if (!looksLikeHostBotWall(raw)) {
-      try {
-        const data = JSON.parse(raw);
-        return res.status(upstream.ok ? 200 : 502).json(data);
-      } catch {
-        /* fall through */
-      }
+    if (!payload.name || !payload.email || !payload.message) {
+      return res.status(400).json({
+        status: "error",
+        message: "Name, email, and message are required",
+      });
     }
 
     const resend = await sendViaResend(payload);
-    if (resend && resend.ok) {
+    if (resend.ok) {
       return res.status(200).json({
         status: "success",
-        message:
-          "Thank you — we received your message. Our team will get back to you soon.",
-        via: "resend",
+        message: "Thank you — we received your message. Our team will get back to you soon.",
       });
     }
 
     return res.status(502).json({
       status: "error",
-      message:
-        "Contact API could not reach your PHP host (HTML security page instead of JSON). Add RESEND_API_KEY in Vercel env, or use PHP hosting that allows server requests.",
-      hint: "Vercel → InfinityFree proxy blocked or invalid response",
-      upstream_status: upstream.status,
-      resend_error: resend && !resend.ok ? resend.detail : undefined,
+      message: "Could not send your message right now. Please email info@jewarinternational.com directly.",
+      resend_error: resend.detail,
     });
   } catch (e) {
     return res.status(500).json({
