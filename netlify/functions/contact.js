@@ -65,9 +65,16 @@ async function sendViaResend(payload) {
   const key = process.env.RESEND_API_KEY;
   if (!key) return null;
 
-  const to = process.env.CONTACT_TO_EMAIL || "info@jewarinternational.com";
+  let to = process.env.CONTACT_TO_EMAIL || "info@jewarinternational.com";
+  if (payload.to && payload.to.includes("@")) {
+    to = payload.to;
+  } else if (payload.source === "landing-page" || payload.source === "landingpage") {
+    to = "tushar@jewarinternational.com";
+  }
+
+  const fromName = (payload.source === "landing-page" || payload.source === "landingpage") ? "JIT Landing Lead" : "JIT Contact Form";
   const from =
-    process.env.CONTACT_FROM_EMAIL || "JIT Contact Form <onboarding@resend.dev>";
+    process.env.CONTACT_FROM_EMAIL || `${fromName} <onboarding@resend.dev>`;
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -79,11 +86,12 @@ async function sendViaResend(payload) {
       from,
       to: [to],
       reply_to: payload.email,
-      subject: `[Website contact] ${payload.subject || "(no subject)"}`,
+      subject: `[${fromName}] ${payload.subject || "(no subject)"}`,
       text: [
         `Name: ${payload.name}`,
         `Email: ${payload.email}`,
         `Phone: ${payload.phone || "-"}`,
+        `Source: ${payload.source || "Website"}`,
         "",
         payload.message || "",
       ].join("\n"),
@@ -137,6 +145,8 @@ exports.handler = async (event) => {
         phone: params.get("phone") || "",
         subject: params.get("subject") || "",
         message: params.get("message") || "",
+        to: params.get("to") || params.get("recipient") || "",
+        source: params.get("source") || params.get("page") || "",
       };
     }
 
@@ -146,6 +156,8 @@ exports.handler = async (event) => {
     form.set("phone", payload.phone || "");
     form.set("subject", payload.subject || "");
     form.set("message", payload.message || "");
+    if (payload.to) form.set("to", payload.to);
+    if (payload.source) form.set("source", payload.source);
     const formBody = form.toString();
 
     const upstream = await postToInfinityFree(formBody);

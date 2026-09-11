@@ -8,5 +8,25 @@
   to = "/contact.html"
   status = 200
 
+[[redirects]]
+  from = "/landing-page"
+  to = "/landing-page.html"
+  status = 200
+
+[[redirects]]
+  from = "/landingpage"
+  to = "/landing-page.html"
+  status = 200
+
+[[redirects]]
+  from = "/landing-page/*"
+  to = "/landing-page.html"
+  status = 200
+
+[[redirects]]
+  from = "/landingpage/*"
+  to = "/landing-page.html"
+  status = 200
+
 [functions]
   node_bundler = "esbuild"

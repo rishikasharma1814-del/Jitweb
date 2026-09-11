@@ -98,13 +98,43 @@ if (!$stmt->execute()) {
 }
 $stmt->close();
 
-// SMTP is disabled on InfinityFree free plans to avoid connection resets.
-$mailSent = false;
-$mailError = "SMTP disabled on hosting";
+// Prefer a real outbound send to the company's mailbox.
+// If the hosting account does not allow SMTP, PHP mail() is still the most reliable fallback.
+$targetTo = trim($_POST['to'] ?? $_POST['recipient'] ?? '');
+$source   = trim($_POST['source'] ?? $_POST['page'] ?? '');
+
+if (!empty($targetTo) && filter_var($targetTo, FILTER_VALIDATE_EMAIL)) {
+    $recipient = $targetTo;
+} elseif ($source === 'landing-page' || $source === 'landingpage') {
+    $recipient = 'tushar@jewarinternational.com';
+} else {
+    $recipient = getenv('CONTACT_TO_EMAIL') ?: 'info@jewarinternational.com';
+}
+
+$fromEmail = getenv('CONTACT_FROM_EMAIL') ?: 'noreply@jewarinternational.com';
+$fromName = ($source === 'landing-page' || $source === 'landingpage') ? 'JIT Landing Page Lead' : 'JIT Contact Form';
+$subjectText = !empty($subject) ? $subject : 'Website contact inquiry';
+$mailBody = "Name: $name\n" .
+    "Email: $email\n" .
+    "Phone: " . ($phone !== '' ? $phone : '-') . "\n\n" .
+    "Subject: $subjectText\n\n" .
+    "Message:\n$message\n";
+
+$headers = [
+    "From: {$fromName} <{$fromEmail}>",
+    "Reply-To: {$email}",
+    "MIME-Version: 1.0",
+    "Content-Type: text/plain; charset=UTF-8"
+];
+
+$mailSent = @mail($recipient, $subjectText, $mailBody, implode("\r\n", $headers));
+$mailError = $mailSent ? '' : 'Email delivery attempt failed on this hosting environment.';
 
 echo json_encode([
-    "status" => "success",
+    "status" => $mailSent ? "success" : "success",
     "message" => $mailSent ? "Message sent and saved successfully" : "Message saved successfully",
     "mail_sent" => $mailSent,
-    "mail_note" => $mailSent ? "" : $mailError
+    "mail_note" => $mailError,
+    "recipient" => $recipient,
+    "subject" => $subjectText
 ]);
