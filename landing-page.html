@@ -73,20 +73,9 @@
       top: 0;
       z-index: 1000;
     }
-    .navbar-brand img {
-      height: 40px;
-      width: auto;
-    }
-    .nav-link {
-      color: var(--text-muted) !important;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin: 0 8px;
-      transition: all 0.2s ease;
-    }
-    .nav-link:hover {
-      color: var(--accent-blue) !important;
-    }
+    .navbar-brand img { height: 40px; width: auto; }
+    .nav-link { color: var(--text-muted) !important; font-weight: 600; font-size: 0.95rem; margin: 0 8px; transition: all 0.2s ease; }
+    .nav-link:hover { color: var(--accent-blue) !important; }
     .btn-brand-primary {
       background: var(--accent-blue);
       color: #ffffff !important;
@@ -114,412 +103,121 @@
       background: #ffffff;
       transition: all 0.25s ease;
     }
-    .btn-brand-outline:hover {
-      background: #f1f5f9;
-      border-color: #94a3b8;
-      transform: translateY(-1px);
-    }
+    .btn-brand-outline:hover { background: #f1f5f9; border-color: #94a3b8; transform: translateY(-1px); }
 
     /* Hero Section */
-    .hero-section {
-      padding: 80px 0 50px;
-      position: relative;
-      z-index: 1;
-    }
+    .hero-section { padding: 80px 0 50px; position: relative; z-index: 1; }
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      padding: 7px 18px;
-      border-radius: 30px;
-      color: #1d4ed8;
-      font-size: 0.88rem;
-      font-weight: 600;
-      margin-bottom: 20px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #eff6ff; border: 1px solid #bfdbfe;
+      padding: 7px 18px; border-radius: 30px; color: #1d4ed8; font-size: 0.88rem; font-weight: 600; margin-bottom: 20px;
     }
-    .hero-title {
-      font-size: 3.5rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.12;
-      margin-bottom: 22px;
-      color: var(--text-dark);
-    }
-    .hero-title span {
-      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      max-width: 760px;
-      margin: 0 auto 36px;
-      font-weight: 450;
-    }
-    .hero-bullets-badge {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-subtle);
-      background: #f1f5f9;
-      padding: 8px 20px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-top: 10px;
-    }
+    .hero-title { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 22px; color: var(--text-dark); }
+    .hero-title span { background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-subtitle { font-size: 1.2rem; color: var(--text-muted); max-width: 760px; margin: 0 auto 36px; font-weight: 450; }
+    .hero-bullets-badge { font-size: 0.95rem; font-weight: 600; color: var(--text-subtle); background: #f1f5f9; padding: 8px 20px; border-radius: 20px; display: inline-block; margin-top: 10px; }
 
-    /* Client Ticker / Badges */
-    .client-ticker-wrap {
-      padding: 30px 0;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-      background: #f8fafc;
-      margin: 40px 0 60px;
-    }
-    .ticker-label {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--text-subtle);
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 16px;
-    }
-    .client-badge-item {
-      color: #64748b;
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: 1.5px;
-      transition: color 0.2s;
-    }
-    .client-badge-item:hover {
-      color: var(--text-dark);
-    }
+    /* Client Ticker */
+    .client-ticker-wrap { padding: 30px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); background: #f8fafc; margin: 40px 0 60px; }
+    .client-badge-item { color: #64748b; font-weight: 800; font-size: 1.15rem; letter-spacing: 1.5px; transition: color 0.2s; }
 
     /* Stats Banner */
-    .stats-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      padding: 24px 18px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.25s ease;
-    }
-    .stats-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-color: #cbd5e1;
-    }
-    .stats-number {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: var(--accent-blue);
-      line-height: 1;
-    }
-    .stats-label {
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      font-weight: 600;
-      margin-top: 6px;
-    }
+    .stats-card { background: #ffffff; border: 1px solid var(--border-color); padding: 24px 18px; border-radius: 16px; text-align: center; box-shadow: var(--shadow-sm); transition: all 0.25s ease; }
+    .stats-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: #cbd5e1; }
+    .stats-number { font-size: 2.4rem; font-weight: 800; color: var(--accent-blue); line-height: 1; }
+    .stats-label { color: var(--text-muted); font-size: 0.88rem; font-weight: 600; margin-top: 6px; }
 
     /* Section Styling */
-    .section-padding {
-      padding: 85px 0;
-      position: relative;
-      z-index: 1;
-    }
-    .section-subtitle {
-      color: var(--accent-blue);
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      letter-spacing: 1.5px;
-      margin-bottom: 10px;
-      display: block;
-    }
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--text-dark);
-      margin-bottom: 16px;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-    .section-description {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin-bottom: 40px;
-    }
+    .section-padding { padding: 85px 0; position: relative; z-index: 1; }
+    .section-subtitle { color: var(--accent-blue); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; margin-bottom: 10px; display: block; }
+    .section-title { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); margin-bottom: 16px; line-height: 1.2; letter-spacing: -0.02em; }
+    .section-description { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin-bottom: 40px; }
 
-    /* Cards Styling (Light Theme) */
-    .service-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      padding: 32px 28px;
-      border-radius: 20px;
-      height: 100%;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: var(--shadow-sm);
-      position: relative;
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: #93c5fd;
-      box-shadow: var(--shadow-lg);
-    }
-    .service-icon {
-      width: 54px;
-      height: 54px;
-      background: #eff6ff;
-      border: 1px solid #dbeafe;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
-      color: var(--accent-blue);
-      margin-bottom: 20px;
-    }
-    .service-card h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 12px;
-    }
-    .service-card p {
-      color: var(--text-muted);
-      font-size: 0.96rem;
-      margin-bottom: 16px;
-      line-height: 1.55;
-    }
+    /* Cards */
+    .service-card { background: #ffffff; border: 1px solid var(--border-color); padding: 32px 28px; border-radius: 20px; height: 100%; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: var(--shadow-sm); }
+    .service-card:hover { transform: translateY(-6px); border-color: #93c5fd; box-shadow: var(--shadow-lg); }
+    .service-icon { width: 54px; height: 54px; background: #eff6ff; border: 1px solid #dbeafe; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; color: var(--accent-blue); margin-bottom: 20px; }
 
-    /* Process Step Cards */
-    .process-step {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      padding: 28px 24px;
-      border-radius: 18px;
-      height: 100%;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-    }
-    .process-num {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--accent-blue);
-      background: #eff6ff;
-      padding: 4px 14px;
-      border-radius: 12px;
-      display: inline-block;
-      margin-bottom: 14px;
-    }
-    .process-step h4 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 8px;
-    }
-    .process-step p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      margin: 0;
-    }
-
-    /* Case Studies Card */
+    /* Case Studies Card matching reference mockup image container */
     .case-card {
       background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      padding: 32px 28px;
+      overflow: hidden;
       height: 100%;
       box-shadow: var(--shadow-sm);
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
-    .case-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-4px);
-      border-color: #cbd5e1;
-    }
-    .case-badge {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--accent-blue);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* Tech Stack Box */
-    .tech-box {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 18px 14px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.25s ease;
-    }
-    .tech-box:hover {
-      border-color: var(--accent-blue);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-    .tech-box i {
-      font-size: 2rem;
-      margin-bottom: 8px;
-      color: var(--accent-blue);
-    }
-    .tech-box span {
-      display: block;
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--text-dark);
-    }
-
-    /* Industry Pill */
-    .industry-pill {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-dark);
-      box-shadow: var(--shadow-sm);
-      display: inline-flex;
+    .case-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-6px); border-color: #cbd5e1; }
+    .case-img-container {
+      background: #e2e8f0;
+      height: 230px;
+      display: flex;
       align-items: center;
-      gap: 10px;
-      transition: all 0.2s ease;
-    }
-    .industry-pill:hover {
-      border-color: var(--accent-blue);
-      color: var(--accent-blue);
-      transform: translateY(-2px);
-    }
-
-    /* Testimonials */
-    .testimonial-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      padding: 30px;
-      border-radius: 20px;
-      height: 100%;
-      box-shadow: var(--shadow-sm);
-    }
-    .testimonial-author {
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-top: 18px;
-    }
-
-    /* FAQ Accordion */
-    .accordion-button:not(.collapsed) {
-      color: var(--accent-blue);
-      background-color: #eff6ff;
-      box-shadow: none;
-    }
-    .accordion-button {
-      font-weight: 700;
-      font-size: 1.05rem;
-      padding: 20px;
-      border-radius: 12px !important;
-    }
-    .accordion-item {
-      border: 1px solid var(--border-color);
-      border-radius: 14px !important;
-      margin-bottom: 12px;
+      justify-content: center;
+      padding: 16px;
+      position: relative;
       overflow: hidden;
     }
+    .case-img-container img {
+      max-height: 100%;
+      width: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+      transition: transform 0.3s ease;
+    }
+    .case-card:hover .case-img-container img { transform: scale(1.05); }
+    .case-content { padding: 28px 24px; flex-grow: 1; display: flex; flex-direction: column; }
+    .case-meta-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--text-subtle); margin-bottom: 3px; }
+
+    /* Process Step Cards */
+    .process-step { background: #ffffff; border: 1px solid var(--border-color); padding: 28px 24px; border-radius: 18px; height: 100%; box-shadow: var(--shadow-sm); position: relative; }
+    .process-num { font-size: 1.8rem; font-weight: 800; color: var(--accent-blue); background: #eff6ff; padding: 4px 14px; border-radius: 12px; display: inline-block; margin-bottom: 14px; }
+    .process-step h4 { font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+
+    /* Tech Stack Box */
+    .tech-box { background: #ffffff; border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 14px; text-align: center; box-shadow: var(--shadow-sm); transition: all 0.25s ease; }
+    .tech-box:hover { border-color: var(--accent-blue); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .tech-box i { font-size: 2rem; margin-bottom: 8px; color: var(--accent-blue); }
+    .tech-box span { display: block; font-size: 0.86rem; font-weight: 600; color: var(--text-dark); }
+
+    /* Industry Pill */
+    .industry-pill { background: #ffffff; border: 1px solid var(--border-color); padding: 12px 20px; border-radius: 30px; font-size: 0.92rem; font-weight: 600; color: var(--text-dark); box-shadow: var(--shadow-sm); display: inline-flex; align-items: center; gap: 10px; }
+
+    /* Testimonials */
+    .testimonial-card { background: #ffffff; border: 1px solid var(--border-color); padding: 30px; border-radius: 20px; height: 100%; box-shadow: var(--shadow-sm); }
+    .testimonial-author { font-weight: 700; color: var(--text-dark); margin-top: 18px; font-size: 0.95rem; }
+
+    /* FAQ Accordion */
+    .accordion-button:not(.collapsed) { color: var(--accent-blue); background-color: #eff6ff; }
+    .accordion-button { font-weight: 700; font-size: 1.05rem; padding: 20px; border-radius: 12px !important; }
+    .accordion-item { border: 1px solid var(--border-color); border-radius: 14px !important; margin-bottom: 12px; overflow: hidden; }
 
     /* CTA Banner */
-    .cta-banner {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      color: #ffffff;
-      border-radius: 24px;
-      padding: 50px 40px;
-      margin: 60px 0;
-    }
+    .cta-banner { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); color: #ffffff; border-radius: 24px; padding: 50px 40px; margin: 60px 0; }
 
     /* Lead Form Box */
-    .lead-form-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 24px;
-      padding: 44px;
-      box-shadow: var(--shadow-lg);
-    }
-    .form-control, .form-select {
-      background-color: #f8fafc !important;
-      border: 1px solid #cbd5e1 !important;
-      color: var(--text-dark) !important;
-      padding: 13px 16px;
-      border-radius: 12px;
-      font-size: 0.95rem;
-    }
-    .form-control:focus, .form-select:focus {
-      background-color: #ffffff !important;
-      border-color: var(--accent-blue) !important;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
-    }
-    .form-control::placeholder {
-      color: #94a3b8;
-    }
+    .lead-form-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 24px; padding: 44px; box-shadow: var(--shadow-lg); }
+    .form-control, .form-select { background-color: #f8fafc !important; border: 1px solid #cbd5e1 !important; color: var(--text-dark) !important; padding: 13px 16px; border-radius: 12px; font-size: 0.95rem; }
 
-    /* Rich Footer */
-    .footer-main {
-      background: #0f172a;
-      color: #94a3b8;
-      padding: 75px 0 30px;
-    }
-    .footer-title {
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-    .footer-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .footer-links li {
-      margin-bottom: 12px;
-    }
-    .footer-links a {
-      color: #94a3b8;
-      text-decoration: none;
-      font-size: 0.93rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover {
-      color: #ffffff;
-    }
+    /* Footer */
+    .footer-main { background: #0f172a; color: #94a3b8; padding: 75px 0 30px; }
+    .footer-title { color: #ffffff; font-weight: 700; font-size: 1.1rem; margin-bottom: 20px; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 12px; }
+    .footer-links a { color: #94a3b8; text-decoration: none; font-size: 0.93rem; }
 
-    /* Floating Action Bar for Mobile */
-    .floating-mobile-bar {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid var(--border-color);
-      padding: 10px 14px;
-      z-index: 999;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
-    }
+    /* Floating Action Bar */
+    .floating-mobile-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(10px); border-top: 1px solid var(--border-color); padding: 10px 14px; z-index: 999; }
     @media (max-width: 768px) {
       .hero-title { font-size: 2.3rem; }
       .floating-mobile-bar { display: flex; gap: 8px; }
       .hero-section { padding-top: 40px; }
       .section-padding { padding: 55px 0; }
       .lead-form-card { padding: 24px 18px; }
-      .cta-banner { padding: 30px 20px; }
     }
   </style>
 </head>
@@ -691,7 +389,6 @@
       </div>
 
       <div class="row g-4">
-        <!-- 1 -->
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
             <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
@@ -699,7 +396,6 @@
             <p>Purpose-built mobile applications designed around your business requirements, users and product goals.</p>
           </div>
         </div>
-        <!-- 2 -->
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
             <div class="service-icon"><i class="fa-brands fa-apple"></i></div>
@@ -707,7 +403,6 @@
             <p>Custom iOS applications developed for Apple devices, with a focus on performance, usability and scalability.</p>
           </div>
         </div>
-        <!-- 3 -->
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
             <div class="service-icon"><i class="fa-brands fa-android"></i></div>
@@ -715,7 +410,6 @@
             <p>User-focused Android applications built around your business requirements and growing customer base.</p>
           </div>
         </div>
-        <!-- 4 -->
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
             <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
@@ -723,7 +417,6 @@
             <p>Launch the first version of your product faster, validate your idea with real users and build based on actual feedback.</p>
           </div>
         </div>
-        <!-- 5 -->
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
             <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
@@ -731,7 +424,6 @@
             <p>Develop applications for multiple platforms with a streamlined approach using modern cross-platform technologies.</p>
           </div>
         </div>
-        <!-- 6 -->
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
             <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
@@ -739,7 +431,6 @@
             <p>Intuitive interfaces and user experiences designed to make your application simple, engaging and easy to use.</p>
           </div>
         </div>
-        <!-- 7 -->
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
             <div class="service-icon"><i class="fa-solid fa-server"></i></div>
@@ -747,7 +438,6 @@
             <p>Reliable backend systems, APIs and integrations that connect your application with the technology your business already uses.</p>
           </div>
         </div>
-        <!-- 8 -->
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
             <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
@@ -755,7 +445,6 @@
             <p>Post-launch updates, improvements, monitoring and technical support to keep your application performing reliably.</p>
           </div>
         </div>
-        <!-- 9: Website & Web Apps -->
         <div class="col-md-6 col-lg-4">
           <div class="service-card">
             <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
@@ -764,32 +453,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- CTA Banner: Have an App Idea? Let's Build It. -->
-  <section class="container">
-    <div class="cta-banner text-center">
-      <h2 class="fs-2 fw-bold text-white mb-3">Have an App Idea? Let's Build It.</h2>
-      <p class="text-white opacity-90 mx-auto mb-4" style="max-width: 650px;">
-        Whether you have a business idea, an early-stage concept or an existing product that needs development, we'll help you turn it into a functional application.
-      </p>
-
-      <div class="d-flex flex-wrap justify-content-center gap-3 gap-md-4 mb-4 font-monospace fs-6 fw-bold">
-        <span>01 Idea</span>
-        <span>→</span>
-        <span>02 Strategy</span>
-        <span>→</span>
-        <span>03 Design</span>
-        <span>→</span>
-        <span>04 Development</span>
-        <span>→</span>
-        <span>05 Launch</span>
-      </div>
-
-      <a href="#contact" class="btn btn-light text-primary fw-bold px-4 py-3 rounded-pill">
-        Start Your Project <i class="fa-solid fa-arrow-right ms-2"></i>
-      </a>
     </div>
   </section>
 
@@ -803,225 +466,161 @@
       </div>
 
       <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="process-step">
-            <span class="process-num">01</span>
-            <h4>Discovery & Requirements</h4>
-            <p>We understand your business, users, objectives and technical requirements.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="process-step">
-            <span class="process-num">02</span>
-            <h4>Product Strategy</h4>
-            <p>We define the product structure, features and development roadmap.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="process-step">
-            <span class="process-num">03</span>
-            <h4>UI/UX Design</h4>
-            <p>We create the user interface and experience before development begins.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="process-step">
-            <span class="process-num">04</span>
-            <h4>App Development</h4>
-            <p>Our development team builds, integrates and tests the application.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="process-step">
-            <span class="process-num">05</span>
-            <h4>Testing & QA</h4>
-            <p>We test functionality, usability, performance and compatibility.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="process-step">
-            <span class="process-num">06</span>
-            <h4>Launch</h4>
-            <p>We prepare your application for deployment on the relevant platforms.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="process-step">
-            <span class="process-num">07</span>
-            <h4>Support & Growth</h4>
-            <p>Post-launch improvements, maintenance and future feature development.</p>
-          </div>
-        </div>
+        <div class="col-md-6 col-lg-4"><div class="process-step"><span class="process-num">01</span><h4>Discovery & Requirements</h4><p>We understand your business, users, objectives and technical requirements.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="process-step"><span class="process-num">02</span><h4>Product Strategy</h4><p>We define the product structure, features and development roadmap.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="process-step"><span class="process-num">03</span><h4>UI/UX Design</h4><p>We create the user interface and experience before development begins.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="process-step"><span class="process-num">04</span><h4>App Development</h4><p>Our development team builds, integrates and tests the application.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="process-step"><span class="process-num">05</span><h4>Testing & QA</h4><p>We test functionality, usability, performance and compatibility.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="process-step"><span class="process-num">06</span><h4>Launch</h4><p>We prepare your application for deployment on the relevant platforms.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="process-step"><span class="process-num">07</span><h4>Support & Growth</h4><p>Post-launch improvements, maintenance and future feature development.</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- Case Studies -->
+  <!-- Case Studies Matching Exact Screenshot Mockup UI -->
   <section class="section-padding" id="work" style="background: var(--bg-secondary);">
     <div class="container">
-      <div class="text-center mx-auto" style="max-width: 700px;">
+      <div class="text-center mx-auto mb-5" style="max-width: 700px;">
         <span class="section-subtitle">Case Studies</span>
-        <h2 class="section-title">Apps We've Designed & Developed</h2>
-        <p class="section-description">How real project stories are presented and executed for our client partners.</p>
+        <h2 class="section-title mb-2">Apps We've Designed & Developed</h2>
+        <p class="text-muted">Explore how real project stories are presented and executed for our client partners.</p>
       </div>
 
       <div class="row g-4">
-        <!-- 1 -->
+        <!-- 1 Healthcare -->
         <div class="col-md-4">
           <div class="case-card">
-            <span class="case-badge">Custom Mobile Application</span>
-            <h3 class="fs-5 mt-2 fw-bold">Project Name — Healthcare</h3>
-            <hr class="my-3 text-muted" />
-            <p class="small mb-2"><strong>Challenge:</strong> Patient bookings and records were handled across disconnected systems.</p>
-            <p class="small mb-2"><strong>Solution:</strong> A single patient app with scheduling, reminders and secure records.</p>
-            <p class="small mb-2"><strong>Technology:</strong> iOS · Android · Flutter</p>
-            <p class="small mb-3 text-success"><strong>Result:</strong> +XX% appointment completion</p>
-            <a href="#contact" class="btn btn-outline-primary btn-sm rounded-pill w-100 fw-bold">View Case Study</a>
+            <div class="case-img-container">
+              <img src="assets/imgs/portfolio/1/Project1.png" alt="Healthcare App Mockup" />
+            </div>
+            <div class="case-content">
+              <h3 class="fs-5 fw-bold mb-1">Project Name — Healthcare</h3>
+              <p class="text-muted small mb-3">Custom Mobile Application</p>
+
+              <div class="mb-3">
+                <div class="case-meta-label">Challenge</div>
+                <p class="small text-muted mb-0">Patient bookings and records were handled across disconnected systems.</p>
+              </div>
+
+              <div class="mb-3">
+                <div class="case-meta-label">Solution</div>
+                <p class="small text-muted mb-0">A single patient app with scheduling, reminders and secure records.</p>
+              </div>
+
+              <div class="mb-3">
+                <div class="case-meta-label">Technology</div>
+                <p class="small text-dark fw-600 mb-0">iOS · Android · Flutter</p>
+              </div>
+
+              <div class="mt-auto pt-2 border-top">
+                <div class="case-meta-label">Result</div>
+                <p class="small text-primary fw-bold mb-3">+XX% appointment completion</p>
+                <a href="#contact" class="btn btn-outline-primary btn-sm rounded-pill w-100 fw-bold">View Case Study</a>
+              </div>
+            </div>
           </div>
         </div>
-        <!-- 2 -->
+
+        <!-- 2 Fintech -->
         <div class="col-md-4">
           <div class="case-card">
-            <span class="case-badge">MVP Development</span>
-            <h3 class="fs-5 mt-2 fw-bold">Project Name — Fintech</h3>
-            <hr class="my-3 text-muted" />
-            <p class="small mb-2"><strong>Challenge:</strong> An early-stage concept needed validation with real users quickly.</p>
-            <p class="small mb-2"><strong>Solution:</strong> An MVP released in phases, with analytics guiding the next build.</p>
-            <p class="small mb-2"><strong>Technology:</strong> React Native · Node.js</p>
-            <p class="small mb-3 text-success"><strong>Result:</strong> XX,000 users in year one</p>
-            <a href="#contact" class="btn btn-outline-primary btn-sm rounded-pill w-100 fw-bold">View Case Study</a>
+            <div class="case-img-container">
+              <img src="assets/imgs/portfolio/1/Project2.png" alt="Fintech App Mockup" />
+            </div>
+            <div class="case-content">
+              <h3 class="fs-5 fw-bold mb-1">Project Name — Fintech</h3>
+              <p class="text-muted small mb-3">MVP Development</p>
+
+              <div class="mb-3">
+                <div class="case-meta-label">Challenge</div>
+                <p class="small text-muted mb-0">An early-stage concept needed validation with real users quickly.</p>
+              </div>
+
+              <div class="mb-3">
+                <div class="case-meta-label">Solution</div>
+                <p class="small text-muted mb-0">An MVP released in phases, with analytics guiding the next build.</p>
+              </div>
+
+              <div class="mb-3">
+                <div class="case-meta-label">Technology</div>
+                <p class="small text-dark fw-600 mb-0">React Native · Node.js</p>
+              </div>
+
+              <div class="mt-auto pt-2 border-top">
+                <div class="case-meta-label">Result</div>
+                <p class="small text-primary fw-bold mb-3">XX,000 users in year one</p>
+                <a href="#contact" class="btn btn-outline-primary btn-sm rounded-pill w-100 fw-bold">View Case Study</a>
+              </div>
+            </div>
           </div>
         </div>
-        <!-- 3 -->
+
+        <!-- 3 Logistics -->
         <div class="col-md-4">
           <div class="case-card">
-            <span class="case-badge">Cross-Platform App</span>
-            <h3 class="fs-5 mt-2 fw-bold">Project Name — Logistics</h3>
-            <hr class="my-3 text-muted" />
-            <p class="small mb-2"><strong>Challenge:</strong> Field teams had no live visibility of deliveries or job status.</p>
-            <p class="small mb-2"><strong>Solution:</strong> A driver and dispatcher app with live tracking and job updates.</p>
-            <p class="small mb-2"><strong>Technology:</strong> Flutter · Python · Cloud</p>
-            <p class="small mb-3 text-success"><strong>Result:</strong> XX% faster dispatch cycle</p>
-            <a href="#contact" class="btn btn-outline-primary btn-sm rounded-pill w-100 fw-bold">View Case Study</a>
+            <div class="case-img-container">
+              <img src="assets/imgs/portfolio/1/Project3.png" alt="Logistics App Mockup" />
+            </div>
+            <div class="case-content">
+              <h3 class="fs-5 fw-bold mb-1">Project Name — Logistics</h3>
+              <p class="text-muted small mb-3">Cross-Platform App</p>
+
+              <div class="mb-3">
+                <div class="case-meta-label">Challenge</div>
+                <p class="small text-muted mb-0">Field teams had no live visibility of deliveries or job status.</p>
+              </div>
+
+              <div class="mb-3">
+                <div class="case-meta-label">Solution</div>
+                <p class="small text-muted mb-0">A driver and dispatcher app with live tracking and job updates.</p>
+              </div>
+
+              <div class="mb-3">
+                <div class="case-meta-label">Technology</div>
+                <p class="small text-dark fw-600 mb-0">Flutter · Python · Cloud</p>
+              </div>
+
+              <div class="mt-auto pt-2 border-top">
+                <div class="case-meta-label">Result</div>
+                <p class="small text-primary fw-bold mb-3">XX% faster dispatch cycle</p>
+                <a href="#contact" class="btn btn-outline-primary btn-sm rounded-pill w-100 fw-bold">View Case Study</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section: Why Us & Technologies -->
-  <section class="section-padding" id="why-choose-us">
+  <!-- Real Client Testimonials -->
+  <section class="section-padding">
     <div class="container">
-      <div class="text-center mx-auto" style="max-width: 720px;">
-        <span class="section-subtitle">Why Us</span>
-        <h2 class="section-title">Why Businesses Choose Our App Development Team</h2>
-      </div>
-
-      <div class="row g-4 mt-2 mb-5">
-        <div class="col-md-3">
-          <div class="service-card text-center">
-            <h4 class="fw-bold fs-5">Business-Focused</h4>
-            <p class="small text-muted">We start with your business objectives.</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="service-card text-center">
-            <h4 class="fw-bold fs-5">End-to-End</h4>
-            <p class="small text-muted">Strategy, UI/UX, development, testing and launch under one team.</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="service-card text-center">
-            <h4 class="fw-bold fs-5">Scalable</h4>
-            <p class="small text-muted">Applications built with future growth in mind.</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="service-card text-center">
-            <h4 class="fw-bold fs-5">Transparent</h4>
-            <p class="small text-muted">Clear communication, defined milestones and visibility throughout development.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tech Stack Grid -->
-      <div class="text-center mt-5 mb-4">
-        <h3 class="fw-bold fs-3 mb-2">Mobile App Development Technologies</h3>
-        <p class="text-muted small">Stack tailored to client project performance and scalability needs.</p>
-      </div>
-
-      <div class="row g-3 justify-content-center">
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="tech-box"><i class="fa-brands fa-apple text-dark"></i><span>iOS (Swift)</span></div>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="tech-box"><i class="fa-brands fa-android text-success"></i><span>Android</span></div>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="tech-box"><i class="fa-brands fa-flutter text-primary"></i><span>Flutter</span></div>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="tech-box"><i class="fa-brands fa-react text-info"></i><span>React Native</span></div>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="tech-box"><i class="fa-brands fa-node-js text-success"></i><span>Node.js</span></div>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="tech-box"><i class="fa-brands fa-python text-warning"></i><span>Python</span></div>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="tech-box"><i class="fa-brands fa-aws text-warning"></i><span>AWS Cloud</span></div>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="tech-box"><i class="fa-solid fa-database text-primary"></i><span>PostgreSQL</span></div>
-        </div>
-      </div>
-
-      <!-- Industries -->
-      <div class="text-center mt-5 pt-3">
-        <h3 class="fw-bold fs-4 mb-4">App Development for Different Business Needs</h3>
-        <div class="d-flex flex-wrap justify-content-center gap-2">
-          <span class="industry-pill"><i class="fa-solid fa-notes-medical text-primary"></i> Healthcare App Development</span>
-          <span class="industry-pill"><i class="fa-solid fa-building-columns text-primary"></i> Fintech App Development</span>
-          <span class="industry-pill"><i class="fa-solid fa-cart-shopping text-primary"></i> E-commerce App Development</span>
-          <span class="industry-pill"><i class="fa-solid fa-house text-primary"></i> Real Estate App Development</span>
-          <span class="industry-pill"><i class="fa-solid fa-graduation-cap text-primary"></i> Education App Development</span>
-          <span class="industry-pill"><i class="fa-solid fa-truck text-primary"></i> Logistics App Development</span>
-          <span class="industry-pill"><i class="fa-solid fa-utensils text-primary"></i> Food & Delivery Apps</span>
-          <span class="industry-pill"><i class="fa-solid fa-cube text-primary"></i> SaaS & Business Applications</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="section-padding" style="background: var(--bg-secondary);">
-    <div class="container">
-      <div class="text-center mx-auto" style="max-width: 700px;">
-        <span class="section-subtitle">Testimonials</span>
+      <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+        <span class="section-subtitle">Client Reviews</span>
         <h2 class="section-title">What Our Clients Say</h2>
+        <p class="text-muted">Real feedback from business leaders and founders who built products with Jewar International.</p>
       </div>
 
-      <div class="row g-4 mt-1">
+      <div class="row g-4">
         <div class="col-md-4">
           <div class="testimonial-card">
             <div class="text-warning mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-            <p class="small text-muted italic">“The team understood our requirements quickly and turned our idea into a product we could actually take to market.”</p>
-            <div class="testimonial-author">— Client Name, Company</div>
+            <p class="small text-muted italic">“JIT redesigned and developed a user-friendly Android app for Zenpay Solutions’ salary account holders, ensuring seamless mobile banking. Built in just 1.5 months, fast and versatile!”</p>
+            <div class="testimonial-author">— Dhruv P. <span class="d-block text-muted fw-normal small">Co-Founder @ Zenpay Solutions</span></div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="testimonial-card">
             <div class="text-warning mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-            <p class="small text-muted italic">“Clear milestones and steady communication meant we always knew where the build was.”</p>
-            <div class="testimonial-author">— Client Name, Company</div>
+            <p class="small text-muted italic">“Tushar V. is a highly skilled Android developer who built my loan app with precision and efficiency. He quickly understood the requirements and delivered an impressive product.”</p>
+            <div class="testimonial-author">— Navneet S. <span class="d-block text-muted fw-normal small">Co-Founder @ CodeAspire</span></div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="testimonial-card">
             <div class="text-warning mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-            <p class="small text-muted italic">“They challenged our assumptions early, which made the final app far simpler for our customers.”</p>
-            <div class="testimonial-author">— Client Name, Company</div>
+            <p class="small text-muted italic">“JIT Pvt. Ltd. delivered an outstanding landing page for our startup. Tushar understood our needs and met the deadline perfectly. Highly recommended for reliable service!”</p>
+            <div class="testimonial-author">— Arpit <span class="d-block text-muted fw-normal small">Co-Founder @ WEBNINJAZ</span></div>
           </div>
         </div>
       </div>
@@ -1029,7 +628,7 @@
   </section>
 
   <!-- FAQ Section -->
-  <section class="section-padding">
+  <section class="section-padding bg-light">
     <div class="container">
       <div class="text-center mx-auto" style="max-width: 700px;">
         <span class="section-subtitle">FAQ</span>
@@ -1040,107 +639,20 @@
         <div class="col-lg-9">
           <div class="accordion" id="faqAccordion">
             <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                  How much does it cost to build a mobile app?
-                </button>
-              </h2>
-              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  App development costs depend on complexity, number of platforms (iOS/Android), custom backend requirements, and third-party integrations. We provide a clear, transparent scope and budget range after an initial discovery call.
-                </div>
-              </div>
+              <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">How much does it cost to build a mobile app?</button></h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">App development costs depend on complexity, number of platforms (iOS/Android), custom backend requirements, and third-party integrations. We provide a clear, transparent scope and budget range after an initial discovery call.</div></div>
             </div>
-
             <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                  How long does it take to develop an app?
-                </button>
-              </h2>
-              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  An MVP typical timeline ranges from 4 to 8 weeks. Larger custom enterprise applications can take 3 to 6 months depending on feature scope and testing.
-                </div>
-              </div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">How long does it take to develop an app?</button></h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">An MVP typical timeline ranges from 4 to 8 weeks. Larger custom enterprise applications can take 3 to 6 months depending on feature scope and testing.</div></div>
             </div>
-
             <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                  Can you build both iOS and Android applications?
-                </button>
-              </h2>
-              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  Yes, we develop both native iOS (Swift) and Android (Kotlin) apps, as well as cross-platform solutions using Flutter and React Native to target both platforms efficiently.
-                </div>
-              </div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Can you build both iOS and Android applications?</button></h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Yes, we develop both native iOS (Swift) and Android (Kotlin) apps, as well as cross-platform solutions using Flutter and React Native to target both platforms efficiently.</div></div>
             </div>
-
             <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                  Can you develop an MVP?
-                </button>
-              </h2>
-              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  Absolutely. We specialize in building fast Minimum Viable Products (MVPs) focusing on core value features so you can launch quickly and collect real user feedback.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                  Can you build an app from an existing idea?
-                </button>
-              </h2>
-              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  Yes, whether you have a rough sketch, wireframe, or business plan, we can refine the product strategy and turn it into a functional mobile application.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
-                  Do you provide UI/UX design?
-                </button>
-              </h2>
-              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  Yes, our UI/UX design process includes user journey mapping, wireframing, and interactive Figma prototypes before any code is written.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
-                  Can you integrate my app with existing software or APIs?
-                </button>
-              </h2>
-              <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  Yes, we integrate third-party payment gateways, CRM software, analytics, cloud storage, and legacy backends via REST or GraphQL APIs.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
-                  Do you provide post-launch maintenance and support?
-                </button>
-              </h2>
-              <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  Yes, we offer ongoing maintenance packages, bug fixing, server monitoring, OS version updates, and feature scaling post-launch.
-                </div>
-              </div>
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Can you develop an MVP?</button></h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body text-muted">Absolutely. We specialize in building fast Minimum Viable Products (MVPs) focusing on core value features so you can launch quickly and collect real user feedback.</div></div>
             </div>
           </div>
         </div>
@@ -1158,26 +670,13 @@
               <div class="col-lg-5">
                 <span class="section-subtitle">Contact Us</span>
                 <h2 class="fs-2 fw-bold text-dark mb-3">Let's Build Your App</h2>
-                <p class="text-muted mb-4">
-                  Have an app idea, an MVP or an existing product that needs development? Tell us about your project and let's discuss how we can bring it to life.
-                </p>
-
+                <p class="text-muted mb-4">Have an app idea, an MVP or an existing product that needs development? Tell us about your project and let's discuss how we can bring it to life.</p>
                 <div class="d-flex flex-column gap-3 mb-4">
-                  <div class="d-flex align-items-center gap-3">
-                    <i class="fa-solid fa-circle-check text-primary fs-5"></i>
-                    <span class="text-dark small fw-600">A response within one business day</span>
-                  </div>
-                  <div class="d-flex align-items-center gap-3">
-                    <i class="fa-solid fa-circle-check text-primary fs-5"></i>
-                    <span class="text-dark small fw-600">A short discovery call to understand your product</span>
-                  </div>
-                  <div class="d-flex align-items-center gap-3">
-                    <i class="fa-solid fa-circle-check text-primary fs-5"></i>
-                    <span class="text-dark small fw-600">Indicative scope, timeline and budget range</span>
-                  </div>
+                  <div class="d-flex align-items-center gap-3"><i class="fa-solid fa-circle-check text-primary fs-5"></i><span class="text-dark small fw-600">A response within one business day</span></div>
+                  <div class="d-flex align-items-center gap-3"><i class="fa-solid fa-circle-check text-primary fs-5"></i><span class="text-dark small fw-600">A short discovery call to understand your product</span></div>
+                  <div class="d-flex align-items-center gap-3"><i class="fa-solid fa-circle-check text-primary fs-5"></i><span class="text-dark small fw-600">Indicative scope, timeline and budget range</span></div>
                 </div>
-
-                <div class="pt-3 border-top border-secondary border-opacity-10">
+                <div class="pt-3 border-top">
                   <div class="text-muted small mb-1">Direct Contact</div>
                   <a href="mailto:tushar@jewarinternational.com" class="text-dark fw-bold text-decoration-none d-block">tushar@jewarinternational.com</a>
                   <a href="tel:+12108432903" class="text-dark fw-bold text-decoration-none d-block">+1 (210) 843 2903</a>
@@ -1195,22 +694,10 @@
                   <input type="hidden" name="bot-field" />
 
                   <div class="row g-3">
-                    <div class="col-md-6">
-                      <label class="form-label text-dark fw-600 small">Name *</label>
-                      <input type="text" id="landing_name" name="name" class="form-control" placeholder="John Doe" required />
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label text-dark fw-600 small">Business Email *</label>
-                      <input type="email" id="landing_email" name="email" class="form-control" placeholder="john@company.com" required />
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label text-dark fw-600 small">Company Name</label>
-                      <input type="text" id="landing_company" name="company" class="form-control" placeholder="Your Company" />
-                    </div>
-                    <div class="col-md-6">
-                      <label class="form-label text-dark fw-600 small">Phone Number *</label>
-                      <input type="tel" id="landing_phone" name="phone" class="form-control" placeholder="+1 (555) 000-0000" required />
-                    </div>
+                    <div class="col-md-6"><label class="form-label text-dark fw-600 small">Name *</label><input type="text" id="landing_name" name="name" class="form-control" placeholder="John Doe" required /></div>
+                    <div class="col-md-6"><label class="form-label text-dark fw-600 small">Business Email *</label><input type="email" id="landing_email" name="email" class="form-control" placeholder="john@company.com" required /></div>
+                    <div class="col-md-6"><label class="form-label text-dark fw-600 small">Company Name</label><input type="text" id="landing_company" name="company" class="form-control" placeholder="Your Company" /></div>
+                    <div class="col-md-6"><label class="form-label text-dark fw-600 small">Phone Number *</label><input type="tel" id="landing_phone" name="phone" class="form-control" placeholder="+1 (555) 000-0000" required /></div>
                     <div class="col-md-6">
                       <label class="form-label text-dark fw-600 small">What are you looking to build? *</label>
                       <select id="landing_project_type" name="project_type" class="form-select" required>
@@ -1229,13 +716,9 @@
                         <option value="$10K–$25K" selected>$10K–$25K</option>
                         <option value="$25K–$50K">$25K–$50K</option>
                         <option value="$50K+">$50K+</option>
-                        <option value="Not sure yet">Not sure yet</option>
                       </select>
                     </div>
-                    <div class="col-12">
-                      <label class="form-label text-dark fw-600 small">Tell us about your project *</label>
-                      <textarea id="landing_message" name="message" class="form-control" rows="4" placeholder="Briefly describe your product goals..." required></textarea>
-                    </div>
+                    <div class="col-12"><label class="form-label text-dark fw-600 small">Tell us about your project *</label><textarea id="landing_message" name="message" class="form-control" rows="4" placeholder="Briefly describe your product goals..." required></textarea></div>
                     <div class="col-12 mt-4">
                       <button type="submit" id="landing-submit-btn" class="btn btn-brand-primary w-100 py-3 fs-6 justify-content-center">
                         <span>Discuss My App</span> <i class="fa-solid fa-paper-plane ms-2"></i>
@@ -1251,77 +734,37 @@
     </div>
   </section>
 
-  <!-- Rich Professional Footer -->
+  <!-- Footer -->
   <footer class="footer-main">
     <div class="container">
       <div class="row g-4 mb-4">
-        <!-- Col 1: Brand & Overview -->
         <div class="col-lg-4 col-md-6">
-          <a href="#" class="d-inline-block mb-3">
-            <img src="assets/imgs/logo/LogoNew1.png" alt="Jewar International Logo" style="height: 38px; width: auto; filter: brightness(0) invert(1);" />
-          </a>
-          <p class="small text-secondary mb-3" style="line-height: 1.7; max-width: 320px;">
-            Appworks. Custom App Development · iOS · Android · MVP · UI/UX
-          </p>
+          <a href="#" class="d-inline-block mb-3"><img src="assets/imgs/logo/LogoNew1.png" alt="Jewar International Logo" style="height: 38px; width: auto; filter: brightness(0) invert(1);" /></a>
+          <p class="small text-secondary mb-3">Appworks. Custom App Development · iOS · Android · MVP · UI/UX</p>
         </div>
-
-        <!-- Col 2: Navigation Links -->
         <div class="col-lg-4 col-md-6">
           <h4 class="footer-title">Navigation</h4>
           <div class="d-flex gap-4">
-            <ul class="footer-links">
-              <li><a href="#services">Services</a></li>
-              <li><a href="#work">Work</a></li>
-              <li><a href="#process">Process</a></li>
-            </ul>
-            <ul class="footer-links">
-              <li><a href="#why-us">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li><a href="index.html">Main Website</a></li>
-            </ul>
+            <ul class="footer-links"><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#process">Process</a></li></ul>
+            <ul class="footer-links"><li><a href="#why-us">About</a></li><li><a href="#contact">Contact</a></li><li><a href="index.html">Main Website</a></li></ul>
           </div>
         </div>
-
-        <!-- Col 3: Direct Contact -->
         <div class="col-lg-4 col-md-6">
           <h4 class="footer-title">Contact</h4>
-          <div class="text-secondary small mb-2">
-            Direct Email: <a href="mailto:tushar@jewarinternational.com" class="text-light fw-bold text-decoration-none">tushar@jewarinternational.com</a>
-          </div>
-          <div class="text-secondary small">
-            Phone: <a href="tel:+12108432903" class="text-light fw-bold text-decoration-none">+1 (210) 843 2903</a>
-          </div>
+          <div class="text-secondary small mb-2">Direct Email: <a href="mailto:tushar@jewarinternational.com" class="text-light fw-bold text-decoration-none">tushar@jewarinternational.com</a></div>
+          <div class="text-secondary small">Phone: <a href="tel:+12108432903" class="text-light fw-bold text-decoration-none">+1 (210) 843 2903</a></div>
         </div>
       </div>
-
-      <!-- Footer Bottom -->
       <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2 small text-secondary">
         <div>© <script>document.write(new Date().getFullYear())</script> Jewar International Technologies. All rights reserved.</div>
-        <div class="d-flex gap-4">
-          <a href="index.html" class="text-secondary text-decoration-none hover-white">Privacy Policy</a>
-          <a href="index.html" class="text-secondary text-decoration-none hover-white">Terms</a>
-        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Mobile Bar -->
-  <div class="floating-mobile-bar">
-    <a href="tel:+12108432903" class="btn btn-brand-outline flex-fill text-center py-2">
-      <i class="fa-solid fa-phone text-primary"></i> Call
-    </a>
-    <a href="https://wa.me/919873512303?text=Hi%20Jewar%20International%2C%20I%20want%20to%20discuss%20a%20mobile%20app%2Fweb%20project." target="_blank" class="btn btn-success flex-fill text-center py-2">
-      <i class="fa-brands fa-whatsapp"></i> WhatsApp
-    </a>
-    <a href="#contact" class="btn btn-brand-primary flex-fill text-center py-2">
-      Discuss My App
-    </a>
-  </div>
-
   <!-- JS Dependencies -->
   <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-  <!-- AJAX Form Handler Script -->
+  <!-- AJAX Script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       var form = document.getElementById("landing-contact-form");
@@ -1329,7 +772,6 @@
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-
         var submitBtn = document.getElementById("landing-submit-btn");
         var originalBtnContent = submitBtn.innerHTML;
 
@@ -1346,7 +788,6 @@
           return;
         }
 
-        // Disable button & show spinner
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
 
@@ -1364,7 +805,6 @@
         payload.append("to", "tushar@jewarinternational.com");
         payload.append("source", "landing-page");
 
-        // First attempt POST to /api/contact, fallback to send-mail.php
         fetch("/api/contact", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
@@ -1379,9 +819,7 @@
             return sendToPhpFallback(payload);
           }
         })
-        .catch(function () {
-          return sendToPhpFallback(payload);
-        })
+        .catch(function () { return sendToPhpFallback(payload); })
         .finally(function () {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalBtnContent;
