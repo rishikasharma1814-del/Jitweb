@@ -25,22 +25,22 @@
 
 [[redirects]]
   from = "/landing-page-2"
-  to = "/landing-page-2.html"
+  to = "/landing-page.html"
   status = 200
 
 [[redirects]]
   from = "/landing-page-dark"
-  to = "/landing-page-2.html"
+  to = "/landing-page.html"
   status = 200
 
 [[redirects]]
   from = "/landing-page-3"
-  to = "/landing-page-3.html"
+  to = "/landing-page.html"
   status = 200
 
 [[redirects]]
   from = "/landing-page-split"
-  to = "/landing-page-3.html"
+  to = "/landing-page.html"
   status = 200
 
 [functions]
