@@ -1882,8 +1882,20 @@
                   </select>
                 </div>
                 <div class="col-12">
-                  <label class="form-label text-dark fw-600 mb-1" style="font-size: 0.78rem;">Project Overview *</label>
-                  <textarea id="hero_open_message" class="form-control form-control-sm" rows="3" placeholder="Briefly describe your product goals..." required style="border-radius: 2px; border-color: var(--border-warm);"></textarea>
+                  <label class="form-label text-dark fw-600 mb-1" style="font-size: 0.78rem;">Estimated Budget *</label>
+                  <select id="hero_open_budget" class="form-select form-select-sm" required style="border-radius: 2px; border-color: var(--border-warm);">
+                    <option value="Under $10K">Under $10K</option>
+                    <option value="$10K–$25K" selected>$10K–$25K</option>
+                    <option value="$25K–$50K">$25K–$50K</option>
+                    <option value="$50K+">$50K+</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <label class="form-label text-dark fw-600 mb-0" style="font-size: 0.78rem;">Project Overview *</label>
+                    <span id="hero_open_char_count" style="font-size: 0.72rem; color: #888888;">0 / 100</span>
+                  </div>
+                  <textarea id="hero_open_message" class="form-control form-control-sm" rows="3" maxlength="100" placeholder="Briefly describe your product goals (max 100 chars)..." required style="border-radius: 2px; border-color: var(--border-warm);" oninput="updateCharCount(this, 'hero_open_char_count')"></textarea>
                 </div>
                 <div class="col-12 mt-3">
                   <button type="submit" id="hero-open-submit-btn" class="btn btn-black-rect w-100 py-2 justify-content-center text-nowrap" style="font-size: 0.9rem;">
@@ -2595,19 +2607,7 @@
             </div>
           </div>
 
-          <!-- Slide 02: CodeAspire -->
-          <div class="carousel-item">
-            <p class="testimonial-quote-text">
-              "Jewar built our loan application with precision and efficiency. Their engineering team quickly understood the requirements, communicated effectively, and delivered an impressive final product. Highly recommended!"
-            </p>
-            <div class="testimonial-author-box">
-              <span class="testimonial-author-name">Navneet S.</span>
-              <span class="testimonial-author-dash">—</span>
-              <span class="testimonial-author-role">Co-Founder @ CodeAspire</span>
-            </div>
-          </div>
-
-          <!-- Slide 03: WEBNINJAZ -->
+          <!-- Slide 02: WEBNINJAZ -->
           <div class="carousel-item">
             <p class="testimonial-quote-text">
               "JIT Pvt. Ltd. delivered an outstanding platform for our startup. Their team understood our business needs from day one and met the launch deadline perfectly. Highly recommended for reliable development service!"
@@ -2619,15 +2619,15 @@
             </div>
           </div>
 
-          <!-- Slide 04: Navina -->
+          <!-- Slide 03: L Version -->
           <div class="carousel-item">
             <p class="testimonial-quote-text">
-              "We have entrusted Jewar with multiple projects, and their commitment to delivering high-quality products within the agreed timeline has been exceptional. Their work ethic, professionalism, and dedication make them a reliable partner."
+              "Working with Jewar International Technologies on our mobile application was an exceptional experience. They delivered clean architecture, smooth UI/UX, and robust performance on time. Their team is dedicated, responsive, and truly understands scalable product development."
             </p>
             <div class="testimonial-author-box">
-              <span class="testimonial-author-name">Gagan</span>
+              <span class="testimonial-author-name">L Version</span>
               <span class="testimonial-author-dash">—</span>
-              <span class="testimonial-author-role">BDM at Navina</span>
+              <span class="testimonial-author-role">Founder @ L Version</span>
             </div>
           </div>
 
@@ -2638,7 +2638,6 @@
           <div class="testimonial-bar-item active" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"></div>
           <div class="testimonial-bar-item" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></div>
           <div class="testimonial-bar-item" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></div>
-          <div class="testimonial-bar-item" data-bs-target="#testimonialCarousel" data-bs-slide-to="3"></div>
         </div>
       </div>
     </div>
@@ -3024,8 +3023,11 @@
                 </select>
               </div>
               <div class="col-12">
-                <label class="form-label text-dark fw-600 small">Tell us about your project *</label>
-                <textarea id="modal_message" class="form-control" rows="3" placeholder="Briefly describe your product goals..." required></textarea>
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <label class="form-label text-dark fw-600 small mb-0">Tell us about your project *</label>
+                  <span id="modal_char_count" style="font-size: 0.72rem; color: #888888;">0 / 100</span>
+                </div>
+                <textarea id="modal_message" class="form-control" rows="3" maxlength="100" placeholder="Briefly describe your product goals (max 100 chars)..." required oninput="updateCharCount(this, 'modal_char_count')"></textarea>
               </div>
               <div class="col-12 mt-4">
                 <button type="submit" id="modal-submit-btn" class="btn btn-black-rect w-100 py-3 fs-6 justify-content-center text-nowrap">
@@ -3122,6 +3124,14 @@
         });
       }
 
+      // Character Count Helper
+      window.updateCharCount = function(textarea, countId) {
+        var countSpan = document.getElementById(countId);
+        if (countSpan) {
+          countSpan.textContent = textarea.value.length + " / 100";
+        }
+      };
+
       // Handle Hero Open Contact Form Submission
       var heroForm = document.getElementById("hero-open-contact-form");
       if (heroForm) {
@@ -3134,12 +3144,16 @@
           var email = document.getElementById("hero_open_email").value.trim();
           var phone = document.getElementById("hero_open_phone").value.trim();
           var projectType = document.getElementById("hero_open_project_type").value;
+          var budgetElem = document.getElementById("hero_open_budget");
+          var budget = budgetElem ? budgetElem.value : "N/A";
           var message = document.getElementById("hero_open_message").value.trim();
 
           submitBtn.disabled = true;
           submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
 
-          var formattedMessage = "Looking to Build: " + projectType + "\n\nProject Overview:\n" + message;
+          var formattedMessage = "Looking to Build: " + projectType + "\n" +
+                                 "Estimated Budget: " + budget + "\n\n" +
+                                 "Project Overview:\n" + message;
           var payload = new URLSearchParams();
           payload.append("name", name);
           payload.append("email", email);
@@ -3156,10 +3170,12 @@
           .then(function () {
             alert("Thank you! Your project details have been submitted. Our team will contact you within 24 hours.");
             heroForm.reset();
+            updateCharCount(document.getElementById("hero_open_message"), "hero_open_char_count");
           })
           .catch(function () {
             alert("Thank you! Your project details have been received.");
             heroForm.reset();
+            updateCharCount(document.getElementById("hero_open_message"), "hero_open_char_count");
           })
           .finally(function () {
             submitBtn.disabled = false;
