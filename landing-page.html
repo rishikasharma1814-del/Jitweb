@@ -134,49 +134,163 @@
       transform: translateY(-2px);
     }
 
-    /* Hero Section */
-    .hero-section { padding: 90px 0 60px; position: relative; z-index: 1; }
-    .hero-badge {
+    /* Hero Section Split Layout matching jit-app-studio.lovable.app */
+    .hero-split-section {
+      padding: 75px 0 60px;
+      position: relative;
+      background: #fbfaf7;
+      overflow: hidden;
+    }
+    
+    .hero-circle-outline {
+      position: absolute;
+      top: 50%;
+      left: -140px;
+      transform: translateY(-50%);
+      width: 500px;
+      height: 500px;
+      border: 1.5px solid rgba(0, 0, 0, 0.08);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-badge-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #d9381e;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-badge-line::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: #d9381e;
+    }
+
+    .hero-studio-title {
+      font-size: 4.6rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.98;
+      color: #000000;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    .hero-studio-subtitle {
+      font-size: 1.05rem;
+      color: #475569;
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .btn-hero-black {
+      background: #000000 !important;
+      color: #ffffff !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 4px;
+      border: none;
+      transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      padding: 7px 20px;
-      border-radius: 30px;
-      color: var(--accent-brand-blue);
-      font-size: 0.9rem;
+      text-decoration: none !important;
+      cursor: pointer;
+    }
+    .btn-hero-black:hover {
+      background: linear-gradient(135deg, var(--accent-brand-blue), var(--accent-brand-indigo)) !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-hero-outline {
+      background: #ffffff !important;
+      color: #0f172a !important;
       font-weight: 700;
-      margin-bottom: 24px;
-    }
-    .hero-title {
-      font-size: 3.4rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 24px;
-      color: #0f172a;
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero-subtitle {
-      font-size: 1.22rem;
-      color: #475569;
-      max-width: 820px;
-      margin: 0 auto 38px;
-      line-height: 1.65;
-    }
-    .hero-bullets-badge {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      display: inline-block;
-      padding: 10px 24px;
-      border-radius: 50px;
       font-size: 0.95rem;
-      color: #334155;
-      font-weight: 600;
-      box-shadow: var(--shadow-sm);
+      padding: 13px 26px;
+      border-radius: 4px;
+      border: 1px solid #cbd5e1 !important;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none !important;
+      cursor: pointer;
+    }
+    .btn-hero-outline:hover {
+      background: #f8fafc !important;
+      border-color: #0f172a !important;
+      transform: translateY(-2px);
+    }
+
+    .hero-tags-bullet {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #64748b;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      border: 1px solid #e2e8f0;
+      background: #000;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      filter: grayscale(80%) contrast(110%);
+      display: block;
+    }
+    .hero-image-overlay-card {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #000000;
+      color: #ffffff;
+      padding: 18px 24px;
+    }
+    .hero-image-overlay-card h5 {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      color: #ffffff;
+    }
+    .hero-image-overlay-card p {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      margin: 0;
     }
 
     /* Brand Logo Cards */
@@ -505,32 +619,52 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section text-center">
-    <div class="container">
-      <div class="hero-badge">
-        <i class="fa-solid fa-mobile-screen-button"></i> Mobile App Development
-      </div>
+  <!-- Hero Section (Split Layout matching jit-app-studio.lovable.app mockup) -->
+  <section class="hero-split-section">
+    <div class="hero-circle-outline"></div>
+    <div class="container position-relative" style="z-index: 1;">
+      <div class="row align-items-center g-5">
+        <!-- Left Column: Copy & Actions -->
+        <div class="col-lg-6">
+          <div class="hero-badge-line">
+            MOBILE APP DEVELOPMENT
+          </div>
 
-      <h1 class="hero-title">
-        Jewar International Technologies builds secure, scalable and user-friendly mobile applications for startups, growing businesses and enterprises.
-      </h1>
+          <h1 class="hero-studio-title">
+            YOUR APP<br />
+            IDEA.<br />
+            OUR<br />
+            EXPERTISE.
+          </h1>
 
-      <p class="hero-subtitle">
-        From first concept through design, development, launch and everything after it — custom native iOS, Android, cross-platform & MVP builds.
-      </p>
+          <p class="hero-studio-subtitle">
+            Jewar International Technologies builds secure, scalable and user-friendly mobile applications for startups, growing businesses and enterprises — from first concept through design, development, launch and everything after it.
+          </p>
 
-      <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mb-4">
-        <button type="button" class="btn btn-brand-primary fs-6 py-3 px-4" data-bs-toggle="modal" data-bs-target="#projectInquiryModal">
-          <span>Tell Us About Your Project</span> <i class="fa-solid fa-arrow-up-right-from-square ms-1" style="font-size: 0.9rem;"></i>
-        </button>
-        <a href="#work" class="btn btn-brand-outline fs-6 py-3 px-4">
-          <span>View Our Work</span> <i class="fa-solid fa-arrow-down ms-1"></i>
-        </a>
-      </div>
+          <div class="hero-actions">
+            <button type="button" class="btn-hero-black" data-bs-toggle="modal" data-bs-target="#projectInquiryModal">
+              Tell Us About Your Project <span class="ms-1" style="font-size: 1.05rem;">↗</span>
+            </button>
+            <button type="button" class="btn-hero-outline" data-bs-toggle="modal" data-bs-target="#projectInquiryModal">
+              Book a Free Consultation
+            </button>
+          </div>
 
-      <div class="hero-bullets-badge mt-2">
-        <i class="fa-solid fa-layer-group text-primary me-2"></i> iOS · Android · Cross-Platform · MVP · Your vision, our code
+          <div class="hero-tags-bullet">
+            <span class="text-danger fs-5" style="line-height: 1;">•</span> iOS · ANDROID · CROSS-PLATFORM · MVP
+          </div>
+        </div>
+
+        <!-- Right Column: B&W Smartphone Hand Photo & Overlay Card -->
+        <div class="col-lg-6">
+          <div class="hero-image-wrap">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000&auto=format&fit=crop" alt="Mobile App Development Studio" />
+            <div class="hero-image-overlay-card">
+              <h5>YOUR VISION, OUR CODE</h5>
+              <p>Apps designed, built and supported by one team.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
