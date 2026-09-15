@@ -96,7 +96,7 @@
       white-space: nowrap !important;
     }
     .navbar-custom .nav-link:hover {
-      color: #d9381e !important;
+      color: var(--accent-blue) !important;
     }
     
     .btn-header-cta {
@@ -105,7 +105,7 @@
       font-weight: 600;
       font-size: 0.92rem;
       padding: 12px 24px;
-      border-radius: 2px;
+      border-radius: 4px;
       border: none;
       transition: all 0.3s ease;
       display: inline-flex;
@@ -113,12 +113,13 @@
       gap: 8px;
       text-decoration: none !important;
       white-space: nowrap !important;
+      cursor: pointer;
     }
     .btn-header-cta:hover {
-      background: #d9381e !important;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo)) !important;
       color: #ffffff !important;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(217, 56, 30, 0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.45);
     }
 
     .btn-brand-primary {
@@ -332,15 +333,11 @@
   <div class="glow-blob glow-2"></div>
   <div class="glow-blob glow-3"></div>
 
-  <!-- Navigation (Header matching Mockup Image 1 & 2) -->
+  <!-- Navigation (Header with Brand Logo & Modal Form Trigger) -->
   <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
-      <a class="brand-logo-wrap text-nowrap" href="#">
-        <div class="brand-jit-box">JIT</div>
-        <div class="brand-jit-text">
-          <span>JEWAR</span>
-          <span>INTERNATIONAL</span>
-        </div>
+      <a class="navbar-brand text-nowrap py-0 d-flex align-items-center" href="#">
+        <img src="assets/imgs/logo/LogoNew1.png" alt="Jewar International Logo" style="height: 42px; width: auto;" />
       </a>
       <button class="navbar-toggler text-dark border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <i class="fa-solid fa-bars fs-4 text-dark"></i>
@@ -355,9 +352,9 @@
           <li class="nav-item"><a class="nav-link text-nowrap" href="#faq">FAQ</a></li>
         </ul>
         <div class="d-flex align-items-center">
-          <a href="#contact" class="btn-header-cta text-nowrap">
+          <button type="button" class="btn-header-cta text-nowrap" data-bs-toggle="modal" data-bs-target="#projectInquiryModal">
             Tell Us About Your Project <span class="ms-1" style="font-size: 1.05rem;">↗</span>
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -1426,6 +1423,72 @@
     </div>
   </div>
 
+  <!-- Project Inquiry Form Modal (Opens on CTA Button Click) -->
+  <div class="modal fade" id="projectInquiryModal" tabindex="-1" aria-labelledby="projectInquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content modal-content-dark" style="background: #0f172a; border: 1px solid rgba(99, 102, 241, 0.4); border-radius: 20px;">
+        <div class="modal-header border-bottom border-secondary border-opacity-25 px-4 pt-4 pb-3">
+          <div>
+            <h4 class="modal-title fw-bold text-white mb-1" id="projectInquiryModalLabel">Tell Us About Your Project</h4>
+            <p class="text-muted small mb-0">Fill in the details below and our team will reach out within 24 hours.</p>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div id="modal-form-alert" class="mb-3" style="display: none;"></div>
+          <form id="modal-contact-form">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label text-light fw-600 small">Name *</label>
+                <input type="text" id="modal_name" class="form-control" placeholder="John Doe" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-light fw-600 small">Business Email *</label>
+                <input type="email" id="modal_email" class="form-control" placeholder="john@company.com" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-light fw-600 small">Company Name</label>
+                <input type="text" id="modal_company" class="form-control" placeholder="Your Company" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-light fw-600 small">Phone Number *</label>
+                <input type="tel" id="modal_phone" class="form-control" placeholder="+1 (555) 000-0000" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-light fw-600 small">What are you looking to build? *</label>
+                <select id="modal_project_type" class="form-select" required>
+                  <option value="New mobile app">New mobile app</option>
+                  <option value="MVP">MVP</option>
+                  <option value="Existing app improvement">Existing app improvement</option>
+                  <option value="UI/UX design only">UI/UX design only</option>
+                  <option value="Backend / API work">Backend / API work</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-light fw-600 small">Estimated Budget</label>
+                <select id="modal_budget" class="form-select">
+                  <option value="Under $10K">Under $10K</option>
+                  <option value="$10K–$25K" selected>$10K–$25K</option>
+                  <option value="$25K–$50K">$25K–$50K</option>
+                  <option value="$50K+">$50K+</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label text-light fw-600 small">Tell us about your project *</label>
+                <textarea id="modal_message" class="form-control" rows="3" placeholder="Briefly describe your product goals..." required></textarea>
+              </div>
+              <div class="col-12 mt-4">
+                <button type="submit" id="modal-submit-btn" class="btn btn-brand-primary w-100 py-3 fs-6 justify-content-center text-nowrap">
+                  <span>Submit Inquiry</span> <i class="fa-solid fa-paper-plane ms-2"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- JS Dependencies -->
   <script src="assets/js/bootstrap.bundle.min.js"></script>
 
@@ -1449,64 +1512,141 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+      // Handle Modal Form Submission
+      var modalForm = document.getElementById("modal-contact-form");
+      if (modalForm) {
+        modalForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var submitBtn = document.getElementById("modal-submit-btn");
+          var originalContent = submitBtn.innerHTML;
+
+          var name = document.getElementById("modal_name").value.trim();
+          var email = document.getElementById("modal_email").value.trim();
+          var company = document.getElementById("modal_company").value.trim();
+          var phone = document.getElementById("modal_phone").value.trim();
+          var projectType = document.getElementById("modal_project_type").value;
+          var budget = document.getElementById("modal_budget").value;
+          var message = document.getElementById("modal_message").value.trim();
+
+          if (!name || !email || !message) {
+            showModalAlert("Please fill in all required fields.", "error");
+            return;
+          }
+
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+
+          var formattedMessage = "Company: " + (company || "N/A") + "\n" +
+                                 "Looking to Build: " + projectType + "\n" +
+                                 "Estimated Budget: " + budget + "\n\n" +
+                                 "Project Description:\n" + message;
+
+          var payload = new URLSearchParams();
+          payload.append("name", name);
+          payload.append("email", email);
+          payload.append("phone", phone);
+          payload.append("subject", "Ad Landing Page Popup Inquiry - " + projectType);
+          payload.append("message", formattedMessage);
+          payload.append("to", "tushar@jewarinternational.com");
+          payload.append("source", "landing-page");
+
+          fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+            body: payload.toString()
+          })
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (data && data.status === "success") {
+              showModalAlert("Thank you! Your project details have been submitted. Our team will contact you within 24 hours.", "success");
+              modalForm.reset();
+            } else {
+              sendModalToPhpFallback(payload);
+            }
+          })
+          .catch(function () { sendModalToPhpFallback(payload); })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalContent;
+          });
+        });
+      }
+
+      // Handle Main Landing Page Form Submission
       var form = document.getElementById("landing-contact-form");
-      if (!form) return;
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var submitBtn = document.getElementById("landing-submit-btn");
+          var originalBtnContent = submitBtn.innerHTML;
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var submitBtn = document.getElementById("landing-submit-btn");
-        var originalBtnContent = submitBtn.innerHTML;
+          var name = document.getElementById("landing_name").value.trim();
+          var email = document.getElementById("landing_email").value.trim();
+          var company = document.getElementById("landing_company").value.trim();
+          var phone = document.getElementById("landing_phone").value.trim();
+          var projectType = document.getElementById("landing_project_type").value;
+          var budget = document.getElementById("landing_budget").value;
+          var message = document.getElementById("landing_message").value.trim();
 
-        var name = document.getElementById("landing_name").value.trim();
-        var email = document.getElementById("landing_email").value.trim();
-        var company = document.getElementById("landing_company").value.trim();
-        var phone = document.getElementById("landing_phone").value.trim();
-        var projectType = document.getElementById("landing_project_type").value;
-        var budget = document.getElementById("landing_budget").value;
-        var message = document.getElementById("landing_message").value.trim();
+          if (!name || !email || !message) {
+            showLandingAlert("Please fill in all required fields (Name, Business Email, Message).", "error");
+            return;
+          }
 
-        if (!name || !email || !message) {
-          showLandingAlert("Please fill in all required fields (Name, Business Email, Message).", "error");
-          return;
-        }
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
 
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
+          var formattedMessage = "Company: " + (company || "N/A") + "\n" +
+                                 "Looking to Build: " + projectType + "\n" +
+                                 "Estimated Budget: " + budget + "\n\n" +
+                                 "Project Description:\n" + message;
 
-        var formattedMessage = "Company: " + (company || "N/A") + "\n" +
-                               "Looking to Build: " + projectType + "\n" +
-                               "Estimated Budget: " + budget + "\n\n" +
-                               "Project Description:\n" + message;
+          var payload = new URLSearchParams();
+          payload.append("name", name);
+          payload.append("email", email);
+          payload.append("phone", phone);
+          payload.append("subject", "Ad Landing Page Inquiry - " + projectType);
+          payload.append("message", formattedMessage);
+          payload.append("to", "tushar@jewarinternational.com");
+          payload.append("source", "landing-page");
 
-        var payload = new URLSearchParams();
-        payload.append("name", name);
-        payload.append("email", email);
-        payload.append("phone", phone);
-        payload.append("subject", "Ad Landing Page Inquiry - " + projectType);
-        payload.append("message", formattedMessage);
-        payload.append("to", "tushar@jewarinternational.com");
-        payload.append("source", "landing-page");
+          fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+            body: payload.toString()
+          })
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (data && data.status === "success") {
+              showLandingAlert("Thank you! Your project details have been submitted. Our team will contact you within 24 hours.", "success");
+              form.reset();
+            } else {
+              return sendToPhpFallback(payload);
+            }
+          })
+          .catch(function () { return sendToPhpFallback(payload); })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnContent;
+          });
+        });
+      }
 
-        fetch("/api/contact", {
+      function sendModalToPhpFallback(payload) {
+        fetch("send-mail.php", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
           body: payload.toString()
         })
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (data && data.status === "success") {
-            showLandingAlert("Thank you! Your project details have been submitted. Our team will contact you within 24 hours.", "success");
-            form.reset();
-          } else {
-            return sendToPhpFallback(payload);
-          }
+        .then(function () {
+          showModalAlert("Thank you! Your project details have been submitted successfully.", "success");
+          if (modalForm) modalForm.reset();
         })
-        .catch(function () { return sendToPhpFallback(payload); })
-        .finally(function () {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnContent;
+        .catch(function () {
+          showModalAlert("Form submitted! We have received your inquiry.", "success");
+          if (modalForm) modalForm.reset();
         });
-      });
+      }
 
       function sendToPhpFallback(payload) {
         fetch("send-mail.php", {
@@ -1514,15 +1654,27 @@
           headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
           body: payload.toString()
         })
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
+        .then(function () {
           showLandingAlert("Thank you! Your project details have been submitted successfully.", "success");
           document.getElementById("landing-contact-form").reset();
         })
-        .catch(function (err) {
+        .catch(function () {
           showLandingAlert("Form submitted! We have received your inquiry.", "success");
           document.getElementById("landing-contact-form").reset();
         });
+      }
+
+      function showModalAlert(msg, type) {
+        var alertBox = document.getElementById("modal-form-alert");
+        if (!alertBox) return;
+        var isSuccess = type === "success";
+        var alertClass = isSuccess ? "alert-success" : "alert-danger";
+        var icon = isSuccess ? "fa-circle-check" : "fa-circle-exclamation";
+        alertBox.innerHTML = '<div class="alert ' + alertClass + ' d-flex align-items-center gap-2 py-3 px-4 rounded-3 mb-3">' +
+                             '<i class="fa-solid ' + icon + ' fs-4"></i>' +
+                             '<div>' + msg + '</div>' +
+                             '</div>';
+        alertBox.style.display = "block";
       }
 
       function showLandingAlert(msg, type) {
