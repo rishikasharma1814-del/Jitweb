@@ -50,18 +50,77 @@
     .glow-2 { top: 700px; right: 10%; width: 450px; height: 450px; background: radial-gradient(circle, var(--accent-indigo), var(--accent-emerald)); }
     .glow-3 { top: 2200px; left: 5%; width: 500px; height: 500px; background: radial-gradient(circle, var(--accent-blue), var(--accent-indigo)); }
 
-    /* Header & Navbar Fix (No text wrapping into 2 lines) */
+    /* Header & Navbar matching Mockup Image 1 & 2 */
     .navbar-custom {
-      background: rgba(9, 13, 22, 0.92);
+      background: #f8f7f4 !important;
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-color);
-      padding: 12px 0; position: sticky; top: 0; z-index: 1000;
+      border-bottom: 1px solid #e5e3dc !important;
+      padding: 14px 0 !important;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
     }
-    .navbar-brand { white-space: nowrap !important; }
-    .navbar-brand img { height: 38px; width: auto; }
-    .nav-link { color: #cbd5e1 !important; font-weight: 500; font-size: 0.92rem; margin: 0 4px; transition: color 0.2s ease; white-space: nowrap !important; }
-    .nav-link:hover { color: #fff !important; }
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none !important;
+      color: #0f172a !important;
+    }
+    .brand-jit-box {
+      border: 1.5px solid #0f172a;
+      padding: 3px 8px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      color: #0f172a;
+      line-height: 1;
+      border-radius: 2px;
+    }
+    .brand-jit-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      color: #0f172a;
+    }
+    .navbar-custom .nav-link {
+      color: #334155 !important;
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin: 0 10px;
+      transition: color 0.2s ease;
+      white-space: nowrap !important;
+    }
+    .navbar-custom .nav-link:hover {
+      color: #d9381e !important;
+    }
     
+    .btn-header-cta {
+      background: #000000 !important;
+      color: #ffffff !important;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 12px 24px;
+      border-radius: 2px;
+      border: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none !important;
+      white-space: nowrap !important;
+    }
+    .btn-header-cta:hover {
+      background: #d9381e !important;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(217, 56, 30, 0.35);
+    }
+
     .btn-brand-primary {
       background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
       color: #ffffff !important; font-weight: 600; padding: 10px 22px; border-radius: 50px; border: none;
@@ -273,33 +332,31 @@
   <div class="glow-blob glow-2"></div>
   <div class="glow-blob glow-3"></div>
 
-  <!-- Navigation (Header fix: No text wrapping into 2 lines) -->
+  <!-- Navigation (Header matching Mockup Image 1 & 2) -->
   <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2 text-nowrap" href="#">
-        <img src="assets/imgs/logo/LogoNew1.png" alt="Jewar International Logo" />
+      <a class="brand-logo-wrap text-nowrap" href="#">
+        <div class="brand-jit-box">JIT</div>
+        <div class="brand-jit-text">
+          <span>JEWAR</span>
+          <span>INTERNATIONAL</span>
+        </div>
       </a>
-      <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <i class="fa-solid fa-bars fs-4"></i>
+      <button class="navbar-toggler text-dark border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <i class="fa-solid fa-bars fs-4 text-dark"></i>
       </button>
 
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav mx-auto align-items-center">
-          <li class="nav-item"><a class="nav-link text-nowrap" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link text-nowrap" href="#work">Work</a></li>
-          <li class="nav-item"><a class="nav-link text-nowrap" href="#process">Process</a></li>
-          <li class="nav-item"><a class="nav-link text-nowrap" href="#why-us">Why Us</a></li>
-          <li class="nav-item"><a class="nav-link text-nowrap" href="#global">Global Reach</a></li>
-          <li class="nav-item"><a class="nav-link text-nowrap" href="#reviews">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link text-nowrap" href="#services">What We Build</a></li>
+          <li class="nav-item"><a class="nav-link text-nowrap" href="#process">Our Process</a></li>
+          <li class="nav-item"><a class="nav-link text-nowrap" href="#work">Our Work</a></li>
+          <li class="nav-item"><a class="nav-link text-nowrap" href="#why-us">Why Jewar</a></li>
           <li class="nav-item"><a class="nav-link text-nowrap" href="#faq">FAQ</a></li>
-          <li class="nav-item"><a class="nav-link text-nowrap" href="#contact">Contact</a></li>
         </ul>
-        <div class="d-flex align-items-center gap-2">
-          <a href="tel:+12108432903" class="btn btn-brand-outline text-nowrap d-none d-xl-inline-flex align-items-center gap-2">
-            <i class="fa-solid fa-phone text-info"></i> +1 (210) 843 2903
-          </a>
-          <a href="#contact" class="btn btn-brand-primary text-nowrap">
-            Discuss Your App <i class="fa-solid fa-arrow-right"></i>
+        <div class="d-flex align-items-center">
+          <a href="#contact" class="btn-header-cta text-nowrap">
+            Tell Us About Your Project <span class="ms-1" style="font-size: 1.05rem;">↗</span>
           </a>
         </div>
       </div>
