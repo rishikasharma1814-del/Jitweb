@@ -1862,7 +1862,6 @@
           <div class="hero-open-form-card" style="background: #ffffff; border: 1px solid var(--border-warm); padding: 28px 30px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
             <div class="mb-3">
               <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #888888; display: block; margin-bottom: 4px;">GET IN TOUCH</span>
-              <h3 style="font-size: 1.35rem; font-weight: 900; color: #000000; text-transform: uppercase; margin-bottom: 4px; letter-spacing: -0.01em;">Tell Us About Your Project</h3>
               <p style="font-size: 0.85rem; color: #666666; margin-bottom: 0;">Fill in the details below and our team will reach out within 24 hours.</p>
             </div>
 
@@ -1903,9 +1902,9 @@
                 <div class="col-12">
                   <div class="d-flex justify-content-between align-items-center mb-1">
                     <label class="form-label text-dark fw-600 mb-0" style="font-size: 0.78rem;">Project Overview *</label>
-                    <span id="hero_open_char_count" style="font-size: 0.72rem; color: #888888;">0 / 100</span>
+                    <span id="hero_open_char_count" style="font-size: 0.72rem; color: #d9534f;">0 / 100 min chars</span>
                   </div>
-                  <textarea id="hero_open_message" class="form-control form-control-sm" rows="3" maxlength="100" placeholder="Briefly describe your product goals (max 100 chars)..." required style="border-radius: 2px; border-color: var(--border-warm);" oninput="updateCharCount(this, 'hero_open_char_count')"></textarea>
+                  <textarea id="hero_open_message" class="form-control form-control-sm" rows="3" minlength="100" placeholder="Describe your project goals in detail (minimum 100 characters required)..." required style="border-radius: 2px; border-color: var(--border-warm);" oninput="updateCharCount(this, 'hero_open_char_count')"></textarea>
                 </div>
                 <div class="col-12 mt-3">
                   <button type="submit" id="hero-open-submit-btn" class="btn btn-black-rect w-100 py-2 justify-content-center text-nowrap" style="font-size: 0.9rem;">
@@ -2941,7 +2940,6 @@
         <!-- Col 4: Contact -->
         <div class="col-lg-3 col-md-6">
           <span class="footer-studio-col-title">CONTACT</span>
-          <div class="small text-secondary mb-2">E-218B, First Floor, Block E, Sector 63, Noida, Uttar Pradesh 201301</div>
           <div class="small text-secondary mb-2"><a href="tel:+12108432903" class="text-secondary text-decoration-none">+1 (210) 843 2903</a></div>
           <div class="small text-secondary"><a href="mailto:info@jewarinternational.com" class="text-secondary text-decoration-none">info@jewarinternational.com</a></div>
         </div>
@@ -2988,7 +2986,7 @@
       <div class="modal-content" style="background: #ffffff; border: 1px solid #000000; border-radius: 2px; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
         <div class="modal-header border-bottom border-secondary border-opacity-25 px-4 pt-4 pb-3">
           <div>
-            <h4 class="modal-title fw-bold text-dark mb-1" id="projectInquiryModalLabel">Tell Us About Your Project</h4>
+            <h4 class="modal-title fw-bold text-dark mb-1" id="projectInquiryModalLabel">Project Inquiry</h4>
             <p class="text-muted small mb-0">Fill in the details below and our team will reach out within 24 hours.</p>
           </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -3034,10 +3032,10 @@
               </div>
               <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center mb-1">
-                  <label class="form-label text-dark fw-600 small mb-0">Tell us about your project *</label>
-                  <span id="modal_char_count" style="font-size: 0.72rem; color: #888888;">0 / 100</span>
+                  <label class="form-label text-dark fw-600 small mb-0">Project Overview *</label>
+                  <span id="modal_char_count" style="font-size: 0.72rem; color: #d9534f;">0 / 100 min chars</span>
                 </div>
-                <textarea id="modal_message" class="form-control" rows="3" maxlength="100" placeholder="Briefly describe your product goals (max 100 chars)..." required oninput="updateCharCount(this, 'modal_char_count')"></textarea>
+                <textarea id="modal_message" class="form-control" rows="3" minlength="100" placeholder="Describe your project goals in detail (minimum 100 characters required)..." required oninput="updateCharCount(this, 'modal_char_count')"></textarea>
               </div>
               <div class="col-12 mt-4">
                 <button type="submit" id="modal-submit-btn" class="btn btn-black-rect w-100 py-3 fs-6 justify-content-center text-nowrap">
@@ -3134,11 +3132,18 @@
         });
       }
 
-      // Character Count Helper
+      // Character Count Helper (Minimum 100 Characters)
       window.updateCharCount = function(textarea, countId) {
         var countSpan = document.getElementById(countId);
         if (countSpan) {
-          countSpan.textContent = textarea.value.length + " / 100";
+          var len = textarea.value.length;
+          if (len < 100) {
+            countSpan.style.color = "#d9534f";
+            countSpan.textContent = len + " / 100 min chars";
+          } else {
+            countSpan.style.color = "#28a745";
+            countSpan.textContent = len + " / 100 min chars ✓";
+          }
         }
       };
 
