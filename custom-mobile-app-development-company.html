@@ -640,9 +640,19 @@
     @media (max-width: 991px) {
       .cta-banner-studio-wrap .container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-start !important;
+        text-align: left !important;
       }
-      .cta-banner-title { font-size: 2rem; }
+      .cta-banner-title { font-size: 2rem; text-align: left !important; }
+      .cta-banner-desc { text-align: left !important; }
+      .cta-banner-btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        width: 100%;
+        gap: 12px;
+      }
     }
 
     /* Development Process Section matching media_1789453530904.png */
@@ -2119,10 +2129,13 @@
           Share the rough version. We’ll help shape it into something buildable.
         </p>
       </div>
-      <div>
-        <button type="button" class="cta-banner-btn" data-bs-toggle="modal" data-bs-target="#projectInquiryModal">
-          Tell Us About Your App <span style="font-size: 1.05rem;">↗</span>
+      <div class="cta-banner-btn-group d-flex flex-wrap align-items-center justify-content-start gap-3 mt-3 mt-lg-0">
+        <button type="button" class="cta-banner-btn text-nowrap" data-bs-toggle="modal" data-bs-target="#projectInquiryModal">
+          Tell Us About Your Project <span style="font-size: 1.05rem;">↗</span>
         </button>
+        <a href="https://calendly.com/tushar-jewarinternational" target="_blank" rel="noopener noreferrer" class="btn-white-outline text-nowrap">
+          Book a Free Consultation <span style="font-size: 1.05rem;">↗</span>
+        </a>
       </div>
     </div>
   </section>
