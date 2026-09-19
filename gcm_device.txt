@@ -1,1 +1,0 @@
-warning: unknown value for GCM_TRACE '1 '
