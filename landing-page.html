@@ -555,9 +555,31 @@
 
     @media (max-width: 991px) {
       .wwb-title-main { font-size: 2.2rem; }
-      .wwb-detail-box { margin-bottom: 40px; }
+      .wwb-detail-box { 
+        margin-top: 15px !important; 
+        margin-bottom: 15px !important; 
+        padding-top: 15px !important; 
+        min-height: auto !important; 
+      }
+      .what-we-build-section .row.g-5 { --bs-gutter-y: 1rem !important; }
       .wwb-item-title { font-size: 1.05rem; }
       .wwb-item-left { gap: 16px; }
+    }
+
+    @media (max-width: 767px) {
+      .dark-tech-pill {
+        padding: 6px 10px !important;
+        font-size: 0.68rem !important;
+        gap: 6px !important;
+        border-radius: 20px !important;
+      }
+      .dark-tech-pill i {
+        font-size: 0.72rem !important;
+      }
+      .tech-marquee-track-1,
+      .tech-marquee-track-2 {
+        gap: 8px !important;
+      }
     }
 
     /* Full-Width Edge-to-Edge CTA Callout Banner matching media_1789452879308.png */
@@ -3437,6 +3459,13 @@
       if (tagElem && descElem) {
         tagElem.innerText = tag;
         descElem.innerText = desc;
+      }
+
+      if (window.innerWidth <= 991) {
+        var detailBox = document.querySelector('.wwb-detail-box');
+        if (detailBox) {
+          detailBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
     }
   </script>
