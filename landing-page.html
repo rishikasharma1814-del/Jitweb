@@ -1646,8 +1646,9 @@
       transform: translateY(-1px);
     }
 
-    .btn-white-outline {
-      background: transparent !important;
+    .btn-white-outline,
+    .btn-black-green-border {
+      background: #000000 !important;
       color: #10B981 !important;
       font-weight: 700;
       font-size: 0.92rem;
@@ -1663,11 +1664,13 @@
       cursor: pointer;
     }
 
-    .btn-white-outline:hover {
+    .btn-white-outline:hover,
+    .btn-black-green-border:hover {
       background: #10B981 !important;
       border-color: #10B981 !important;
       color: #ffffff !important;
       box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+      transform: translateY(-1px);
     }
 
     @media (max-width: 991px) {
