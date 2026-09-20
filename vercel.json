@@ -1,0 +1,25 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/thank-you",
+      "destination": "/custom-mobile-app-development-company.html"
+    },
+    {
+      "source": "/thank-you/",
+      "destination": "/custom-mobile-app-development-company.html"
+    },
+    {
+      "source": "/custom-mobile-app-development-company",
+      "destination": "/custom-mobile-app-development-company.html"
+    },
+    {
+      "source": "/landing-page",
+      "destination": "/custom-mobile-app-development-company.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    }
+  ]
+}
