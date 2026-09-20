@@ -1912,6 +1912,17 @@
     </div>
   </nav>
 
+  <!-- Thank You Global Notification Banner (Displays when URL is /thank-you) -->
+  <div id="thank-you-global-banner" style="display: none; background: #0f5132; color: #ffffff; padding: 12px 20px; font-weight: 600; font-size: 0.95rem; position: sticky; top: 0; z-index: 99999; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-2 mx-auto text-center">
+        <i class="fa-solid fa-circle-check fs-5" style="color: #4ade80;"></i>
+        <span>Thank you! Your project details have been received. Our team will contact you within 24 hours.</span>
+      </div>
+      <button type="button" class="btn-close btn-close-white ms-2" onclick="document.getElementById('thank-you-global-banner').style.display='none'" aria-label="Close" style="filter: invert(1); opacity: 0.8;"></button>
+    </div>
+  </div>
+
   <!-- Hero Section (Split Layout matching media_1789450959240.png) -->
   <section class="hero-studio-section">
     <div class="hero-circle-accent"></div>
@@ -3196,6 +3207,38 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+      function redirectToThankYou() {
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "form_submission_success",
+            form_destination: "/thank-you"
+          });
+        } catch(e) {}
+        window.location.href = "/thank-you";
+      }
+
+      // Check if current URL is /thank-you
+      if (window.location.pathname.indexOf("thank-you") !== -1) {
+        var thankYouBanner = document.getElementById("thank-you-global-banner");
+        if (thankYouBanner) {
+          thankYouBanner.style.display = "block";
+        }
+        var heroAlert = document.getElementById("hero-open-form-alert");
+        if (heroAlert) {
+          heroAlert.className = "alert alert-success d-flex align-items-center mb-3";
+          heroAlert.style.display = "flex";
+          heroAlert.innerHTML = '<i class="fa-solid fa-circle-check me-2 fs-5" style="color: #198754;"></i><div><strong>Thank you!</strong> Your project details have been received. Our team will contact you within 24 hours.</div>';
+        }
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: "thank_you_page_view",
+            page_path: "/thank-you"
+          });
+        } catch(e) {}
+      }
+
       // Handle Modal Form Submission
       var modalForm = document.getElementById("modal-contact-form");
       if (modalForm) {
@@ -3242,17 +3285,12 @@
           .then(function (res) { return res.json(); })
           .then(function (data) {
             if (data && data.status === "success") {
-              showModalAlert("Thank you! Your project details have been submitted. Our team will contact you within 24 hours.", "success");
-              modalForm.reset();
+              redirectToThankYou();
             } else {
               sendModalToPhpFallback(payload);
             }
           })
-          .catch(function () { sendModalToPhpFallback(payload); })
-          .finally(function () {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalContent;
-          });
+          .catch(function () { sendModalToPhpFallback(payload); });
         });
       }
 
@@ -3307,18 +3345,16 @@
             body: payload.toString()
           })
           .then(function () {
-            alert("Thank you! Your project details have been submitted. Our team will contact you within 24 hours.");
-            heroForm.reset();
-            updateCharCount(document.getElementById("hero_open_message"), "hero_open_char_count");
+            redirectToThankYou();
           })
           .catch(function () {
-            alert("Thank you! Your project details have been received.");
-            heroForm.reset();
-            updateCharCount(document.getElementById("hero_open_message"), "hero_open_char_count");
-          })
-          .finally(function () {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalContent;
+            fetch("send-mail.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+              body: payload.toString()
+            }).finally(function () {
+              redirectToThankYou();
+            });
           });
         });
       }
@@ -3369,17 +3405,12 @@
           .then(function (res) { return res.json(); })
           .then(function (data) {
             if (data && data.status === "success") {
-              showLandingAlert("Thank you! Your project details have been submitted. Our team will contact you within 24 hours.", "success");
-              form.reset();
+              redirectToThankYou();
             } else {
               return sendToPhpFallback(payload);
             }
           })
-          .catch(function () { return sendToPhpFallback(payload); })
-          .finally(function () {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnContent;
-          });
+          .catch(function () { return sendToPhpFallback(payload); });
         });
       }
 
@@ -3389,13 +3420,8 @@
           headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
           body: payload.toString()
         })
-        .then(function () {
-          showModalAlert("Thank you! Your project details have been submitted successfully.", "success");
-          if (modalForm) modalForm.reset();
-        })
-        .catch(function () {
-          showModalAlert("Form submitted! We have received your inquiry.", "success");
-          if (modalForm) modalForm.reset();
+        .finally(function () {
+          redirectToThankYou();
         });
       }
 
@@ -3405,13 +3431,8 @@
           headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
           body: payload.toString()
         })
-        .then(function () {
-          showLandingAlert("Thank you! Your project details have been submitted successfully.", "success");
-          document.getElementById("landing-contact-form").reset();
-        })
-        .catch(function () {
-          showLandingAlert("Form submitted! We have received your inquiry.", "success");
-          document.getElementById("landing-contact-form").reset();
+        .finally(function () {
+          redirectToThankYou();
         });
       }
 

@@ -14,6 +14,16 @@
   status = 200
 
 [[redirects]]
+  from = "/thank-you"
+  to = "/custom-mobile-app-development-company.html"
+  status = 200
+
+[[redirects]]
+  from = "/thank-you/"
+  to = "/custom-mobile-app-development-company.html"
+  status = 200
+
+[[redirects]]
   from = "/landing-page"
   to = "/custom-mobile-app-development-company.html"
   status = 200

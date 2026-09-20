@@ -6,3 +6,9 @@ Header always set Access-Control-Allow-Origin "*"
 Header always set Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS"
 Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
 </IfModule>
+ 
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^thank-you/?$ custom-mobile-app-development-company.html [L]
+RewriteRule ^custom-mobile-app-development-company/?$ custom-mobile-app-development-company.html [L]
+</IfModule>
