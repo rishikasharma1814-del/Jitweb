@@ -8,7 +8,6 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-NL66GKK9');</script>
   <!-- End Google Tag Manager -->
-  <base href="/" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Custom Mobile App Development Company | iOS & Android</title>
@@ -111,6 +110,14 @@
     }
 
     .text-muted { color: var(--text-body) !important; opacity: 1 !important; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section[id] {
+      scroll-margin-top: 85px;
+    }
 
     /* Header & Navbar matching media_1789450959240.png */
     .navbar-custom {
@@ -3261,6 +3268,45 @@
           });
         } catch(e) {}
       }
+
+      // Smooth in-page scrolling for header navigation & anchors
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener("click", function (e) {
+          var targetId = this.getAttribute("href");
+          if (!targetId || targetId === "#") {
+            if (this.getAttribute("data-bs-toggle")) return;
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            return;
+          }
+          if (targetId.startsWith("#")) {
+            var targetEl = document.querySelector(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+              if (history.pushState) {
+                history.pushState(null, "", targetId);
+              } else {
+                location.hash = targetId;
+              }
+              // Auto close mobile navbar collapse if open
+              var navMenu = document.getElementById("navMenu");
+              if (navMenu && navMenu.classList.contains("show")) {
+                if (typeof bootstrap !== "undefined" && bootstrap.Collapse) {
+                  var bsCollapse = bootstrap.Collapse.getInstance(navMenu);
+                  if (bsCollapse) {
+                    bsCollapse.hide();
+                  } else {
+                    navMenu.classList.remove("show");
+                  }
+                } else {
+                  navMenu.classList.remove("show");
+                }
+              }
+            }
+          }
+        });
+      });
 
       // Handle Modal Form Submission
       var modalForm = document.getElementById("modal-contact-form");
