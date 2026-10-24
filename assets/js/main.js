@@ -80,6 +80,10 @@
   $(document).ready(function () {
     $('.preloader').hide();
   });
+  $(document).on('click', 'a[href*="business-coaching"], a[href="/product"], a[href="product.html"]', function () {
+    if (this.target === '_blank' || this.hasAttribute('download')) return;
+    $('.preloader').css('display', 'block');
+  });
   /////////////////////////////////////////////////////
 
   // 07. Data backgrond

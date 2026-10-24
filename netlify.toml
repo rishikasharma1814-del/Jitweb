@@ -58,5 +58,15 @@
   to = "/custom-mobile-app-development-company.html"
   status = 200
 
+[[redirects]]
+  from = "/product"
+  to = "/business-coaching.html"
+  status = 200
+
+[[redirects]]
+  from = "/business-coaching"
+  to = "/business-coaching.html"
+  status = 200
+
 [functions]
   node_bundler = "esbuild"

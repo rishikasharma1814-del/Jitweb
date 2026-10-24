@@ -20,6 +20,14 @@
     {
       "source": "/contact",
       "destination": "/contact.html"
+    },
+    {
+      "source": "/product",
+      "destination": "/business-coaching.html"
+    },
+    {
+      "source": "/business-coaching",
+      "destination": "/business-coaching.html"
     }
   ]
 }
