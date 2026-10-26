@@ -10978,6 +10978,13 @@
         display: none
       }
     }
+
+    @media only screen and (max-width: 1199px) {
+      #proposal-page .j26-home,
+      .j26-home {
+        padding-top: 95px !important;
+      }
+    }
   </style>
   <style>
     /* Navigation repair: contain the scaled phone and keep controls accessible. */
@@ -13085,11 +13092,6 @@
                   style="width: 16px; height: auto; vertical-align: middle" /> +1 (210) 843 2903</a></li>
             <li><a href="mailto:info@jewarinternational.com"><img src="assets/imgs/icon/email-white.svg" alt="Email"
                   style="width: 16px; height: auto; vertical-align: middle" /> info@jewarinternational.com</a></li>
-            <li><a
-                href="https://www.google.com/maps/place/Jewar+International+Technologies/@28.6246375,77.3872014,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce515e38e3b77:0xe5dd734df24b3d2e!8m2!3d28.6246375!4d77.3872014!16s%2Fg%2F11vrcg6krv?entry=ttu"
-                target="_blank" rel="noopener"><img src="assets/imgs/icon/location-svg.svg" alt="Location"
-                  style="width: 20px; height: auto; vertical-align: middle" />E-218B, First Floor, Block E, Sector 63,
-                Noida, Uttar Pradesh 201301</a></li>
           </ul>
         </div>
         <img src="assets/imgs/shape/11.png" alt="shape" class="shape-1" />
@@ -35815,7 +35817,7 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
         ];
         return `<section class="j26-faq" id="j26-faq"><div class="j26-section-title"><div><small>A few useful answers</small><h2>Before you make it yours.</h2></div><p>A clear view of the product, the demo and what happens next.</p></div>${qs.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('')}</section>`;
       }
-      function footer() { return `<section class="j26-contact-section" id="j26-contact"><div><small>YOUR NEXT CHAPTER</small><h2>Let’s put your brand<br>at the centre of the experience.</h2><p>Walk through Business Coaching with JIT. We’ll explore your content, your offer and how your clients could use it.</p></div><a class="j26-contact-circle" href="${HOME}contact" target="_top">${arrow}<span>Talk about<br>your platform</span></a></section><footer class="j26-footer"><div class="j26-footer-main"><div><a href="${HOME}" target="_top" class="j26-wordmark"><strong>JEWAR INTERNATIONAL</strong><small>TECHNOLOGIES</small></a><p>Technology for your next idea.<br>A connected experience for your next chapter.</p></div><div><h3>Explore JIT</h3><a href="${HOME}" target="_top">Home</a><a href="${HOME}about" target="_top">About us</a><a href="${HOME}service" target="_top">Services</a><a href="#j26-overview" data-j26-product>Business Coaching</a><a href="${HOME}portfolio-2" target="_top">Portfolio</a><a href="${HOME}blog" target="_top">Blog</a></div><div><h3>Get in touch</h3><a href="mailto:info@jewarinternational.com">info@jewarinternational.com</a><a href="tel:+12108432903">+1 (210) 843 2903</a><p>E-218B, First Floor, Block E<br>Sector 63, Noida, Uttar Pradesh 201301</p></div></div><div class="j26-footer-bottom"><span>© ${new Date().getFullYear()} Jewar International Technologies Pvt Ltd.</span><span>Business Coaching · Product experience <a href="#j26-overview" data-j26-jump="j26-overview">↑ Back to top</a></span></div></footer>` }
+      function footer() { return `<section class="j26-contact-section" id="j26-contact"><div><small>YOUR NEXT CHAPTER</small><h2>Let’s put your brand<br>at the centre of the experience.</h2><p>Walk through Business Coaching with JIT. We’ll explore your content, your offer and how your clients could use it.</p></div><a class="j26-contact-circle" href="${HOME}contact" target="_top">${arrow}<span>Talk about<br>your platform</span></a></section><footer class="j26-footer"><div class="j26-footer-main"><div><a href="${HOME}" target="_top" class="j26-wordmark"><strong>JEWAR INTERNATIONAL</strong><small>TECHNOLOGIES</small></a><p>Technology for your next idea.<br>A connected experience for your next chapter.</p></div><div><h3>Explore JIT</h3><a href="${HOME}" target="_top">Home</a><a href="${HOME}about" target="_top">About us</a><a href="${HOME}service" target="_top">Services</a><a href="#j26-overview" data-j26-product>Business Coaching</a><a href="${HOME}portfolio-2" target="_top">Portfolio</a><a href="${HOME}blog" target="_top">Blog</a></div><div><h3>Get in touch</h3><a href="mailto:info@jewarinternational.com">info@jewarinternational.com</a><a href="tel:+12108432903">+1 (210) 843 2903</a></div></div><div class="j26-footer-bottom"><span>© ${new Date().getFullYear()} Jewar International Technologies Pvt Ltd.</span><span>Business Coaching · Product experience <a href="#j26-overview" data-j26-jump="j26-overview">↑ Back to top</a></span></div></footer>` }
       const sceneCopy = [
         [
           "THE CHALLENGE",
@@ -36030,7 +36032,7 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
         if (mode === 'mobile') openScreen(signed ? (membership ? 'M01' : 'C06') : 'C01');
         if (mode === 'web') wNav(W.authed ? 'home' : 'login');
         if (mode === 'admin') { adminSection = 'Overview'; renderAdmin(); }
-        tour.mode = mode; tour.step = 0; tour.visible = mode !== 'mobile' || (innerWidth >= 1100 && innerHeight >= 500); renderGuide(); syncChrome();
+        tour.mode = mode; tour.step = 0; tour.visible = true; renderGuide(); syncChrome();
         window.scrollTo({ top: 0, behavior: 'auto' });
         requestAnimationFrame(() => { window.JITWebsiteViewportV28?.schedule(); document.querySelector('[data-j27-mode="' + mode + '"]')?.focus({ preventScroll: true }); });
       }
@@ -36153,15 +36155,72 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
       font-size: 8px
     }
 
-    /* The phone canvas stays intact. Its OUTER viewport scales to both dimensions. */
-    body.j26-site[data-j27-demo="mobile"] {
-      height: 100vh;
-      height: 100dvh;
-      overflow: hidden !important;
-      overscroll-behavior: none
+    /* The phone canvas stays intact. Its OUTER viewport scales to both dimensions on desktop. */
+    @media(min-width:1100px) {
+      body.j26-site[data-j27-demo="mobile"] {
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden !important;
+        overscroll-behavior: none
+      }
     }
 
-    body.j26-site[data-j27-demo="mobile"] #mobile-workspace:not([hidden]) {
+    @media(max-width:1099px) {
+      body.j26-site[data-j27-demo="mobile"] {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        overscroll-behavior: auto !important;
+      }
+    }
+
+    @media(min-width:1100px) {
+      body.j26-site[data-j27-demo="mobile"] #mobile-workspace:not([hidden]) {
+        position: fixed !important;
+        top: var(--j28-workspace-top, 118px);
+        bottom: 0;
+        left: var(--j26-rail);
+        right: 0;
+        width: auto !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 10px 16px max(10px, env(safe-area-inset-bottom)) !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        overflow: hidden !important;
+        box-sizing: border-box;
+        background: radial-gradient(ellipse at 50% 45%, #f4f7ef, #e9ede5 80%);
+      }
+    }
+
+    @media(max-width:1099px) {
+      body.j26-site[data-j27-demo="mobile"] #mobile-workspace:not([hidden]) {
+        position: relative !important;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+        margin: 10px auto 50px !important;
+        padding: 10px 16px 60px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        box-sizing: border-box !important;
+        background: transparent !important;
+      }
+    }
+
+    body.j26-site[data-j27-demo="mobile"] #mobile-workspace_disabled:not([hidden]) {
       position: fixed !important;
       top: var(--j28-workspace-top, 118px);
       bottom: 0;
@@ -36317,44 +36376,6 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
     }
 
     @media(max-width:1099px) {
-      body.j26-site[data-j27-demo="mobile"] #j27-guide:not([hidden]) {
-        left: calc(var(--j26-rail) + 12px);
-        right: 12px;
-        width: auto;
-        top: calc(var(--j28-toolbar-bottom, 118px) + 8px);
-        max-height: 155px;
-        padding: 12px 36px 12px 16px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 8px 16px
-      }
-
-      body.j26-site[data-j27-demo="mobile"] .j27-guide-progress,
-      body.j26-site[data-j27-demo="mobile"] .j27-guide-arrows,
-      body.j26-site[data-j27-demo="mobile"] .j28-demo-assurance {
-        display: none
-      }
-
-      body.j26-site[data-j27-demo="mobile"] .j27-guide-copy h2 {
-        font-size: 14px !important
-      }
-
-      body.j26-site[data-j27-demo="mobile"] .j27-guide-copy p {
-        font-size: 11px;
-        margin-top: 5px;
-        max-width: 500px
-      }
-
-      body.j26-site[data-j27-demo="mobile"] .j27-guide-copy {
-        grid-column: auto
-      }
-
-      body.j26-site[data-j27-demo="mobile"] .j27-guide-action {
-        font-size: 10px;
-        padding: 9px 12px;
-        align-self: center
-      }
-
       body.j26-site #j27-demo-nav .j27-demo-label {
         display: none
       }
@@ -36608,20 +36629,26 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
         const toolbar = document.getElementById('j27-demo-nav');
         const toolbarBottom = Math.max(header?.getBoundingClientRect().bottom || 0, toolbar?.getBoundingClientRect().bottom || 0);
         set(document.body, '--j28-toolbar-bottom', Math.ceil(toolbarBottom) + 'px');
+        const isMobileScreen = innerWidth < 1100;
         let top = toolbarBottom;
         const guide = document.getElementById('j27-guide');
-        if (innerWidth < 1100 && guide && !guide.hidden) top = Math.max(top, guide.getBoundingClientRect().bottom + 8);
-        top = Math.min(Math.ceil(top), Math.max(0, viewportBottom - 50));
-        set(document.body, '--j28-workspace-top', top + 'px');
-        // visualViewport accounts for a shrinking browser viewport/virtual keyboard.
-        set(workspace, 'bottom', Math.max(0, innerHeight - viewportBottom) + 'px');
+        if (!isMobileScreen) {
+          if (guide && !guide.hidden) top = Math.max(top, guide.getBoundingClientRect().bottom + 8);
+          top = Math.min(Math.ceil(top), Math.max(0, viewportBottom - 50));
+          set(document.body, '--j28-workspace-top', top + 'px');
+          set(workspace, 'bottom', Math.max(0, innerHeight - viewportBottom) + 'px');
+        } else {
+          workspace.style.removeProperty('bottom');
+          workspace.style.removeProperty('top');
+        }
         const bounds = workspace.getBoundingClientRect(), style = getComputedStyle(workspace);
         const row = host.querySelector('.zoomtop');
         const chromeH = row && getComputedStyle(row).display !== 'none' ? row.getBoundingClientRect().height : 0;
         const w = Math.max(1, bounds.width - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight));
         const h = Math.max(1, bounds.height - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom) - chromeH - 2);
         const sourceWidth = phone.offsetWidth || 390, sourceHeight = phone.offsetHeight || 844;
-        const scale = Math.max(.001, Math.min(1, w / sourceWidth, h / sourceHeight));
+        const availW = isMobileScreen ? (Math.min(innerWidth, bounds.width || innerWidth) - 40) : w;
+        const scale = isMobileScreen ? Math.min(0.78, Math.max(0.55, availW / sourceWidth)) : Math.max(.001, Math.min(1, w / sourceWidth, h / sourceHeight));
         const width = (sourceWidth * scale).toFixed(3) + 'px', height = (sourceHeight * scale).toFixed(3) + 'px';
         set(host, 'width', width, 'important');
         set(stage, 'width', width, 'important'); set(stage, 'height', height, 'important');
@@ -36865,6 +36892,43 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
             $('.offcanvas__area').css({ 'opacity': '0', 'visibility': 'hidden' });
           }
         });
+
+        // Mobile header scroll effect (matching main.js on Home & About)
+        var header_bg = document.querySelector(".header__area");
+        function updateHeaderOnScroll() {
+          if (!header_bg) return;
+          if (window.innerWidth < 1200) {
+            var scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            if (scrollY > 20) {
+              header_bg.classList.add("sticky-header");
+              header_bg.style.setProperty("background", "#121212", "important");
+              header_bg.style.setProperty("mix-blend-mode", "unset", "important");
+            } else {
+              header_bg.classList.remove("sticky-header");
+              header_bg.style.setProperty("background", "transparent", "important");
+              header_bg.style.setProperty("mix-blend-mode", "exclusion", "important");
+            }
+          } else {
+            header_bg.classList.remove("sticky-header");
+            header_bg.style.removeProperty("background");
+            header_bg.style.setProperty("mix-blend-mode", "exclusion");
+          }
+        }
+        window.addEventListener("scroll", updateHeaderOnScroll, { passive: true });
+        var lastCoachingWidth = window.innerWidth;
+        var coachingResizeTimer;
+        window.addEventListener("resize", function () {
+          updateHeaderOnScroll();
+          clearTimeout(coachingResizeTimer);
+          coachingResizeTimer = setTimeout(function () {
+            var newWidth = window.innerWidth;
+            if ((lastCoachingWidth < 1200 && newWidth >= 1200) || (lastCoachingWidth >= 1200 && newWidth < 1200)) {
+              lastCoachingWidth = newWidth;
+              window.location.reload();
+            }
+          }, 250);
+        }, { passive: true });
+        updateHeaderOnScroll();
       });
     })(jQuery);
   </script>

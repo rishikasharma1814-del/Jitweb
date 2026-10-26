@@ -402,28 +402,58 @@ if (apply_trigger2) {
 
 
   /////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////
   // 05. Header 1
-  if (device_width < 1365) {
-    let header_bg = document.querySelector(".header__area");
+  let header_bg = document.querySelector(".header__area");
 
-    if (header_bg) {
-      window.onscroll = function () {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          header_bg.style.background = "#121212";
-          header_bg.style.setProperty('mix-blend-mode', 'unset');
-          if (scroll_top) {
-            scroll_top.style.display = "block";
-          }
-        } else {
-          header_bg.style.background = "transparent";
-          header_bg.style.setProperty('mix-blend-mode', 'exclusion');
-          if (scroll_top) {
-            scroll_top.style.display = "none";
-          }
+  function updateMainHeader() {
+    if (!header_bg) return;
+    if (window.innerWidth < 1200) {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        header_bg.style.background = "#121212";
+        header_bg.style.setProperty('mix-blend-mode', 'unset');
+        if (scroll_top) {
+          scroll_top.style.display = "block";
         }
-      };
+      } else {
+        header_bg.style.background = "transparent";
+        header_bg.style.setProperty('mix-blend-mode', 'exclusion');
+        if (scroll_top) {
+          scroll_top.style.display = "none";
+        }
+      }
+    } else {
+      header_bg.style.removeProperty("background");
+      header_bg.style.setProperty('mix-blend-mode', 'exclusion');
+      if (scroll_top) {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          scroll_top.style.display = "block";
+        } else {
+          scroll_top.style.display = "none";
+        }
+      }
     }
   }
+
+  if (header_bg) {
+    window.addEventListener("scroll", updateMainHeader, { passive: true });
+    window.addEventListener("resize", updateMainHeader, { passive: true });
+    updateMainHeader();
+  }
+
+  // Seamless breakpoint reload: when screen size changes between mobile (< 1200) and desktop (>= 1200)
+  let lastDeviceWidth = window.innerWidth;
+  let resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      let newWidth = window.innerWidth;
+      if ((lastDeviceWidth < 1200 && newWidth >= 1200) || (lastDeviceWidth >= 1200 && newWidth < 1200)) {
+        lastDeviceWidth = newWidth;
+        window.location.reload();
+      }
+    }, 250);
+  }, { passive: true });
   /////////////////////////////////////////////////////
 
 
