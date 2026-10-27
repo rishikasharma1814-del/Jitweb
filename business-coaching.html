@@ -36327,11 +36327,11 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
         width: auto;
         top: calc(var(--j28-toolbar-bottom, 118px) + 8px);
         max-height: none;
-        padding: 18px 20px 16px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+        padding: 12px 16px 10px;
+        display: grid;
+        grid-template-columns: auto auto 1fr;
+        align-items: center;
+        gap: 6px 10px;
         box-sizing: border-box;
         background: #f8faf3;
         border: 1px solid #d4ddca;
@@ -36340,40 +36340,42 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-progress {
+        grid-column: 1 / -1;
         display: flex !important;
         align-items: baseline;
         justify-content: space-between;
         width: 100%;
         border: 0;
         padding: 0;
-        padding-right: 28px;
+        padding-right: 24px;
         box-sizing: border-box;
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-progress small {
-        font-size: 10px;
+        font-size: 9.5px;
         color: #7e8b72;
         letter-spacing: 0.05em;
         font-weight: 600;
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-progress strong {
-        font-size: 18px;
+        font-size: 16px;
         color: #24351c;
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-progress strong span {
-        font-size: 13px;
+        font-size: 12px;
         color: #7e8b72;
         font-weight: normal;
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-copy {
+        grid-column: 1 / -1;
         width: 100%;
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-copy h2 {
-        font-size: 18px !important;
+        font-size: 15px !important;
         line-height: 1.25;
         color: #24351c;
         margin: 0;
@@ -36382,37 +36384,41 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-copy p {
         display: block !important;
-        font-size: 12px !important;
-        line-height: 1.6;
+        font-size: 11px !important;
+        line-height: 1.45;
         color: #687960;
-        margin-top: 6px !important;
+        margin-top: 3px !important;
         max-width: none;
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-action {
+        grid-column: 1;
         display: inline-flex !important;
         align-items: center;
-        gap: 6px;
-        font-size: 11px;
+        gap: 5px;
+        font-size: 10.5px;
         font-weight: 600;
-        padding: 9px 16px;
+        padding: 7px 14px;
         background: #24351c;
         color: #ffffff;
         border-radius: 999px;
         border: none;
         cursor: pointer;
-        align-self: flex-start;
+        width: fit-content;
+        margin: 2px 0 0 0;
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-arrows {
+        grid-column: 2;
         display: flex !important;
-        gap: 8px;
+        gap: 6px;
         align-items: center;
+        margin: 2px 0 0 0;
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-arrows button {
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
         border: 1px solid #d4ddca;
         border-radius: 50%;
         background: #ffffff;
@@ -36421,7 +36427,7 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        font-size: 13px;
+        font-size: 12px;
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-arrows button:disabled {
@@ -36430,20 +36436,21 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
       }
 
       body.j26-site[data-j27-demo="mobile"] .j28-demo-assurance {
+        grid-column: 1 / -1;
         display: block !important;
-        font-size: 11px;
+        font-size: 10px;
         color: #7e8b72;
         margin: 2px 0 0 !important;
-        padding-top: 10px;
+        padding-top: 6px;
         border-top: 1px solid #d5ddcf;
         width: 100%;
-        line-height: 1.4;
+        line-height: 1.35;
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-close {
         position: absolute;
-        top: 14px;
-        right: 16px;
+        top: 12px;
+        right: 14px;
         background: transparent;
         border: none;
         font-size: 18px;
