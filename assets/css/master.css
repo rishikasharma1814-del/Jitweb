@@ -8349,7 +8349,7 @@ img {
 
 @media only screen and (max-width: 767px) {
   .hero__about-content {
-    padding-top: 250px;
+    padding-top: 120px;
   }
 }
 
@@ -8359,7 +8359,13 @@ img {
 
 @media only screen and (max-width: 767px) {
   .hero__about-content .hero-title {
-    padding-bottom: 30px;
+    padding-bottom: 24px;
+    line-height: 1.18;
+    font-size: clamp(28px, 7.5vw, 36px);
+  }
+  .hero__about-content .hero-title .px-3 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
@@ -8433,6 +8439,9 @@ img {
 @media only screen and (max-width: 767px) {
   .hero__about-text p {
     padding-left: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--gray-2, #666);
   }
 }
 

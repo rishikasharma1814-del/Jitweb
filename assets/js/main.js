@@ -375,28 +375,28 @@
   //   });
   // }
   var apply_trigger2 = document.querySelector(".job__apply"); // click to open modal 2
-var modal2 = document.querySelector("#application_form2");
-var apply_close2 = document.querySelector("#apply_close2");
-var back_form1 = document.querySelector("#back_form1"); // if you have a back button inside modal2
+  var modal2 = document.querySelector("#application_form2");
+  var apply_close2 = document.querySelector("#apply_close2");
+  var back_form1 = document.querySelector("#back_form1"); // if you have a back button inside modal2
 
-if (apply_trigger2) {
-  // Open Modal 2
-  apply_trigger2.addEventListener("click", function () {
-    modal2.classList.add("modal-show");
-  });
+  if (apply_trigger2) {
+    // Open Modal 2
+    apply_trigger2.addEventListener("click", function () {
+      modal2.classList.add("modal-show");
+    });
 
-  // Close Modal 2
-  apply_close2.addEventListener("click", function () {
-    modal2.classList.remove("modal-show");
-  });
-
-  // Optional: back button logic inside modal 2
-  if (back_form1) {
-    back_form1.addEventListener("click", function () {
+    // Close Modal 2
+    apply_close2.addEventListener("click", function () {
       modal2.classList.remove("modal-show");
     });
+
+    // Optional: back button logic inside modal 2
+    if (back_form1) {
+      back_form1.addEventListener("click", function () {
+        modal2.classList.remove("modal-show");
+      });
+    }
   }
-}
 
   /////////////////////////////////////////////////////
 
@@ -2215,20 +2215,20 @@ if (apply_trigger2) {
 
   // Service Page hero Animation 
   let word_up = document.querySelector(".animation__word_up")
-  let split_word_up = new SplitText(word_up, { type: "words", position: "absolute" })
+  let split_word_up = new SplitText(word_up, { type: "words" })
   gsap.from(split_word_up.words, { duration: 1, y: 50, autoAlpha: 0, stagger: 0.05 });
 
   // Service Page hero Animation   
   let word_come = document.querySelectorAll(".animation__word_come")
   word_come.forEach((word_come) => {
-    let split_word_come = new SplitText(word_come, { type: "chars words", position: "absolute" })
+    let split_word_come = new SplitText(word_come, { type: "chars words" })
     gsap.from(split_word_come.words, { duration: 1, x: 50, autoAlpha: 0, stagger: 0.05 });
   })
 
   // Service Page hero Animation   
   let word_come_long = document.querySelectorAll(".animation__word_come_long")
   word_come_long.forEach((word_come_long) => {
-    let split_word_come_long = new SplitText(word_come_long, { type: "chars words", position: "absolute" })
+    let split_word_come_long = new SplitText(word_come_long, { type: "chars words" })
     gsap.from(split_word_come_long.words, { duration: 1, x: 50, autoAlpha: 0, stagger: 0.5 });
   })
 
@@ -3475,43 +3475,43 @@ if (apply_trigger2) {
   //   });
   // }
   // Job Details
-if (device_width > 767) {
-  gsap.to(".job__detail-sidebar", {
-    scrollTrigger: {
-      trigger: ".job__detail",
-      pin: ".job__detail-sidebar",
-      pinSpacing: true, // ✅ change to true
-      start: "top top",
-      end: "bottom center",
-      markers: false
-    }
-  });
-}
-// ✅ Smooth anchor scroll fix for pinned layout
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", e => {
-    const href = anchor.getAttribute("href");
-    if (!href || href === "#") return;
-    e.preventDefault();
-
-    const target = document.querySelector(href);
-    if (!target) return;
-
-    // temporarily enable pinSpacing to stabilize height
-    ScrollTrigger.getAll().forEach(t => t.refresh());
-
-    gsap.to(window, {
-      scrollTo: { y: target, offsetY: 100 },
-      duration: 1,
-      ease: "power2.inOut",
-      onStart: () => ScrollTrigger.refresh(),
-      onComplete: () => {
-        ScrollTrigger.refresh(); // ensure pin recalculation
-        history.replaceState(null, null, href);
+  if (device_width > 767) {
+    gsap.to(".job__detail-sidebar", {
+      scrollTrigger: {
+        trigger: ".job__detail",
+        pin: ".job__detail-sidebar",
+        pinSpacing: true, // ✅ change to true
+        start: "top top",
+        end: "bottom center",
+        markers: false
       }
     });
+  }
+  // ✅ Smooth anchor scroll fix for pinned layout
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", e => {
+      const href = anchor.getAttribute("href");
+      if (!href || href === "#") return;
+      e.preventDefault();
+
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      // temporarily enable pinSpacing to stabilize height
+      ScrollTrigger.getAll().forEach(t => t.refresh());
+
+      gsap.to(window, {
+        scrollTo: { y: target, offsetY: 100 },
+        duration: 1,
+        ease: "power2.inOut",
+        onStart: () => ScrollTrigger.refresh(),
+        onComplete: () => {
+          ScrollTrigger.refresh(); // ensure pin recalculation
+          history.replaceState(null, null, href);
+        }
+      });
+    });
   });
-});
 
 
 

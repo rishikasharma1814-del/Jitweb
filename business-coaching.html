@@ -10980,6 +10980,7 @@
     }
 
     @media only screen and (max-width: 1199px) {
+
       #proposal-page .j26-home,
       .j26-home {
         padding-top: 95px !important;
@@ -28790,6 +28791,7 @@ No external libraries/media; no wheel interception, synthetic vibration or timer
       color: #244232
     }
 
+
     .v22-inbox-row .grow>strong {
       display: flex;
       justify-content: space-between;
@@ -28813,7 +28815,7 @@ No external libraries/media; no wheel interception, synthetic vibration or timer
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-      line-height: 1.55
+      line-height: 1.55;
     }
 
     .v22-inbox-meta {
@@ -36082,7 +36084,7 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
       }); obs.observe(root, { attributes: true, attributeFilter: ['hidden'], childList: true });
       window.addEventListener('jit:branding-saved', () => { if (!root.hidden) adapt(); syncChrome() });
       window.JITWebsiteV26 = Object.freeze({ handleClick: handleWebsiteClick, render: adapt, openDemo, inspect: () => ({ mode: currentMode, public: !root.hidden, hero: !!root.querySelector('#j26-overview'), menu: false, originalReveal: !!root.querySelector('.r13-film'), version: 30, product: 'Business Coaching', scene: lastScene, guide: tour.visible, demoStorageKey: 'jit-loyaltyops-public-v26' }) });
-      const productHashTargets = ['#j26-overview', '#j26-features', '#r13-invest', '#j26-reveal', '#j26-faq', '#j30-testimonial']; function finishProductBoot() { const hash = window.JITWebsiteInitialHash || ''; const id = productHashTargets.includes(hash) ? hash.slice(1) : 'j26-overview'; goto(id, 'auto'); requestAnimationFrame(() => { document.documentElement.classList.remove('jit-product-boot'); const pre = document.querySelector('.preloader'); if (pre) pre.style.display = 'none'; }); } adapt(); syncChrome(); finishProductBoot();
+      const productHashTargets = ['#j26-overview', '#j26-features', '#r13-invest', '#j26-reveal', '#j26-faq', '#j30-testimonial']; function finishProductBoot() { const hash = window.JITWebsiteInitialHash || ''; const id = productHashTargets.includes(hash) ? hash.slice(1) : 'j26-overview'; goto(id, 'auto'); requestAnimationFrame(() => { document.documentElement.classList.remove('jit-product-boot'); const pre = document.querySelector('.preloader'); if (pre) pre.style.display = 'none'; }); } adapt(); syncChrome(); finishProductBoot(); if (window.JITWebsiteInitialHash === "#demo" || location.search.includes("demo=mobile")) { openDemo("mobile"); }
       const hash = window.JITWebsiteInitialHash;
       if (hash && ['#j26-overview', '#j26-features', '#r13-invest', '#j26-reveal', '#j26-faq', '#j30-testimonial'].includes(hash)) setTimeout(() => goto(hash.slice(1), 'auto'), 150);
     })();
@@ -36156,71 +36158,14 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
     }
 
     /* The phone canvas stays intact. Its OUTER viewport scales to both dimensions on desktop. */
-    @media(min-width:1100px) {
-      body.j26-site[data-j27-demo="mobile"] {
-        height: 100vh;
-        height: 100dvh;
-        overflow: hidden !important;
-        overscroll-behavior: none
-      }
+    body.j26-site[data-j27-demo="mobile"] {
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden !important;
+      overscroll-behavior: none
     }
 
-    @media(max-width:1099px) {
-      body.j26-site[data-j27-demo="mobile"] {
-        height: auto !important;
-        min-height: 100% !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        overscroll-behavior: auto !important;
-      }
-    }
-
-    @media(min-width:1100px) {
-      body.j26-site[data-j27-demo="mobile"] #mobile-workspace:not([hidden]) {
-        position: fixed !important;
-        top: var(--j28-workspace-top, 118px);
-        bottom: 0;
-        left: var(--j26-rail);
-        right: 0;
-        width: auto !important;
-        height: auto !important;
-        min-height: 0 !important;
-        max-width: none !important;
-        margin: 0 !important;
-        padding: 10px 16px max(10px, env(safe-area-inset-bottom)) !important;
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        gap: 0;
-        overflow: hidden !important;
-        box-sizing: border-box;
-        background: radial-gradient(ellipse at 50% 45%, #f4f7ef, #e9ede5 80%);
-      }
-    }
-
-    @media(max-width:1099px) {
-      body.j26-site[data-j27-demo="mobile"] #mobile-workspace:not([hidden]) {
-        position: relative !important;
-        top: auto !important;
-        bottom: auto !important;
-        left: auto !important;
-        right: auto !important;
-        width: 100% !important;
-        height: auto !important;
-        min-height: 0 !important;
-        overflow: visible !important;
-        margin: 10px auto 50px !important;
-        padding: 10px 16px 60px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        box-sizing: border-box !important;
-        background: transparent !important;
-      }
-    }
-
-    body.j26-site[data-j27-demo="mobile"] #mobile-workspace_disabled:not([hidden]) {
+    body.j26-site[data-j27-demo="mobile"] #mobile-workspace:not([hidden]) {
       position: fixed !important;
       top: var(--j28-workspace-top, 118px);
       bottom: 0;
@@ -36238,7 +36183,7 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
       gap: 0;
       overflow: hidden !important;
       box-sizing: border-box;
-      background: radial-gradient(ellipse at 50% 45%, #f4f7ef, #e9ede5 80%);
+      background: radial-gradient(ellipse at 50% 45%, #f4f7ef, #e9ede5 80%)
     }
 
     body.j26-site[data-j27-demo="mobile"] #phone-host {
@@ -36376,6 +36321,136 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
     }
 
     @media(max-width:1099px) {
+      body.j26-site[data-j27-demo="mobile"] #j27-guide:not([hidden]) {
+        left: 12px;
+        right: 12px;
+        width: auto;
+        top: calc(var(--j28-toolbar-bottom, 118px) + 8px);
+        max-height: none;
+        padding: 18px 20px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        box-sizing: border-box;
+        background: #f8faf3;
+        border: 1px solid #d4ddca;
+        border-radius: 16px;
+        box-shadow: 0 8px 22px rgba(51, 69, 38, 0.06);
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-progress {
+        display: flex !important;
+        align-items: baseline;
+        justify-content: space-between;
+        width: 100%;
+        border: 0;
+        padding: 0;
+        padding-right: 28px;
+        box-sizing: border-box;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-progress small {
+        font-size: 10px;
+        color: #7e8b72;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-progress strong {
+        font-size: 18px;
+        color: #24351c;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-progress strong span {
+        font-size: 13px;
+        color: #7e8b72;
+        font-weight: normal;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-copy {
+        width: 100%;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-copy h2 {
+        font-size: 18px !important;
+        line-height: 1.25;
+        color: #24351c;
+        margin: 0;
+        font-weight: 700;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-copy p {
+        display: block !important;
+        font-size: 12px !important;
+        line-height: 1.6;
+        color: #687960;
+        margin-top: 6px !important;
+        max-width: none;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-action {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 9px 16px;
+        background: #24351c;
+        color: #ffffff;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        align-self: flex-start;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-arrows {
+        display: flex !important;
+        gap: 8px;
+        align-items: center;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-arrows button {
+        width: 32px;
+        height: 32px;
+        border: 1px solid #d4ddca;
+        border-radius: 50%;
+        background: #ffffff;
+        color: #24351c;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 13px;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-arrows button:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j28-demo-assurance {
+        display: block !important;
+        font-size: 11px;
+        color: #7e8b72;
+        margin: 2px 0 0 !important;
+        padding-top: 10px;
+        border-top: 1px solid #d5ddcf;
+        width: 100%;
+        line-height: 1.4;
+      }
+
+      body.j26-site[data-j27-demo="mobile"] .j27-guide-close {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        background: transparent;
+        border: none;
+        font-size: 18px;
+        color: #687960;
+        cursor: pointer;
+      }
+
       body.j26-site #j27-demo-nav .j27-demo-label {
         display: none
       }
@@ -36459,7 +36534,7 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-copy p {
-        display: none
+        display: block !important
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-copy h2 {
@@ -36498,7 +36573,7 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
       }
 
       body.j26-site[data-j27-demo="mobile"] .j27-guide-copy p {
-        display: none
+        display: block !important
       }
     }
 
@@ -36629,26 +36704,20 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
         const toolbar = document.getElementById('j27-demo-nav');
         const toolbarBottom = Math.max(header?.getBoundingClientRect().bottom || 0, toolbar?.getBoundingClientRect().bottom || 0);
         set(document.body, '--j28-toolbar-bottom', Math.ceil(toolbarBottom) + 'px');
-        const isMobileScreen = innerWidth < 1100;
         let top = toolbarBottom;
         const guide = document.getElementById('j27-guide');
-        if (!isMobileScreen) {
-          if (guide && !guide.hidden) top = Math.max(top, guide.getBoundingClientRect().bottom + 8);
-          top = Math.min(Math.ceil(top), Math.max(0, viewportBottom - 50));
-          set(document.body, '--j28-workspace-top', top + 'px');
-          set(workspace, 'bottom', Math.max(0, innerHeight - viewportBottom) + 'px');
-        } else {
-          workspace.style.removeProperty('bottom');
-          workspace.style.removeProperty('top');
-        }
+        if (innerWidth < 1100 && guide && !guide.hidden) top = Math.max(top, guide.getBoundingClientRect().bottom + 8);
+        top = Math.min(Math.ceil(top), Math.max(0, viewportBottom - 50));
+        set(document.body, '--j28-workspace-top', top + 'px');
+        // visualViewport accounts for a shrinking browser viewport/virtual keyboard.
+        set(workspace, 'bottom', Math.max(0, innerHeight - viewportBottom) + 'px');
         const bounds = workspace.getBoundingClientRect(), style = getComputedStyle(workspace);
         const row = host.querySelector('.zoomtop');
         const chromeH = row && getComputedStyle(row).display !== 'none' ? row.getBoundingClientRect().height : 0;
         const w = Math.max(1, bounds.width - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight));
         const h = Math.max(1, bounds.height - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom) - chromeH - 2);
         const sourceWidth = phone.offsetWidth || 390, sourceHeight = phone.offsetHeight || 844;
-        const availW = isMobileScreen ? (Math.min(innerWidth, bounds.width || innerWidth) - 40) : w;
-        const scale = isMobileScreen ? Math.min(0.78, Math.max(0.55, availW / sourceWidth)) : Math.max(.001, Math.min(1, w / sourceWidth, h / sourceHeight));
+        const scale = Math.max(.001, Math.min(1, w / sourceWidth, h / sourceHeight));
         const width = (sourceWidth * scale).toFixed(3) + 'px', height = (sourceHeight * scale).toFixed(3) + 'px';
         set(host, 'width', width, 'important');
         set(stage, 'width', width, 'important'); set(stage, 'height', height, 'important');
@@ -36728,7 +36797,7 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
     }
   </style>
 
-  
+
   <style id="jit-v32-sticky-demo">
     /* v32: Floating bottom-right Try the demo CTA on product landing page */
     #j32-sticky-demo {
@@ -36757,9 +36826,11 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
       touch-action: manipulation;
       transition: background .18s ease, box-shadow .18s ease, transform .18s ease;
     }
+
     #j32-sticky-demo[hidden] {
       display: none !important;
     }
+
     #j32-sticky-demo svg {
       display: block;
       width: 20px;
@@ -36771,14 +36842,17 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
       stroke-linejoin: round;
       pointer-events: none;
     }
+
     #j32-sticky-demo span {
       pointer-events: none;
     }
+
     #j32-sticky-demo:focus-visible {
       outline: 3px solid #8daf4a;
       outline-offset: 4px;
       box-shadow: 0 0 0 7px #ffffffd9, 0 8px 30px #0003;
     }
+
     @media(hover: hover) {
       #j32-sticky-demo:hover {
         background: #e0f3b5;
@@ -36786,10 +36860,12 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
         transform: translateY(-2px);
       }
     }
+
     #j32-sticky-demo:active {
       transform: translateY(0);
       background: #bfd77f;
     }
+
     @media(max-width: 720px) {
       #j32-sticky-demo {
         right: calc(var(--jit-demo-right, 16px) + env(safe-area-inset-right, 0px));
@@ -36799,17 +36875,20 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
         gap: 10px;
         font-size: 13px;
       }
+
       #j32-sticky-demo svg {
         width: 18px;
         height: 18px;
         flex-basis: 18px;
       }
     }
+
     @media(prefers-reduced-motion: reduce) {
       #j32-sticky-demo {
         transition: none;
       }
     }
+
     @media print {
       #j32-sticky-demo {
         display: none !important;
@@ -36831,17 +36910,21 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
       white-space: nowrap;
       transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
     }
+
     #j27-demo-nav .j26-demo-return:hover {
       background: #26351a;
       border-color: #8daf4a;
       color: #ffffff;
     }
+
     #j27-demo-nav .j26-demo-return:active {
       background: #344822;
     }
+
     #j27-demo-nav .j26-demo-return[hidden] {
       display: none !important;
     }
+
     @media(max-width: 720px) {
       #j27-demo-nav .j26-demo-return {
         padding: 5px 10px;
@@ -36893,21 +36976,14 @@ Uses the existing local model, publishing, cohorts and proposal; no network serv
           }
         });
 
-        // Mobile header scroll effect (matching main.js on Home & About)
+        // Mobile header styling to match tab bar background color (#1b1f17)
         var header_bg = document.querySelector(".header__area");
         function updateHeaderOnScroll() {
           if (!header_bg) return;
           if (window.innerWidth < 1200) {
-            var scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-            if (scrollY > 20) {
-              header_bg.classList.add("sticky-header");
-              header_bg.style.setProperty("background", "#121212", "important");
-              header_bg.style.setProperty("mix-blend-mode", "unset", "important");
-            } else {
-              header_bg.classList.remove("sticky-header");
-              header_bg.style.setProperty("background", "transparent", "important");
-              header_bg.style.setProperty("mix-blend-mode", "exclusion", "important");
-            }
+            header_bg.classList.add("sticky-header");
+            header_bg.style.setProperty("background", "#1b1f17", "important");
+            header_bg.style.setProperty("mix-blend-mode", "normal", "important");
           } else {
             header_bg.classList.remove("sticky-header");
             header_bg.style.removeProperty("background");
