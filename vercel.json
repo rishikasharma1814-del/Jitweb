@@ -22,6 +22,22 @@
       "destination": "/contact.html"
     },
     {
+      "source": "/product/tattoo",
+      "destination": "/tattoo.html"
+    },
+    {
+      "source": "/product/tattoo/",
+      "destination": "/tattoo.html"
+    },
+    {
+      "source": "/tattoo",
+      "destination": "/tattoo.html"
+    },
+    {
+      "source": "/product/assets/:match*",
+      "destination": "/assets/:match*"
+    },
+    {
       "source": "/product",
       "destination": "/business-coaching.html"
     },

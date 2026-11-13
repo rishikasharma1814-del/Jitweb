@@ -5274,13 +5274,14 @@ img {
   }
 }
 
-.offcanvas__menu-wrapper.mean-container .mean-nav ul li a.mean-expand {
-  width: 60px;
-  height: 96px;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  font-weight: 300;
+.offcanvas__menu-wrapper.mean-container .mean-nav ul li a.mean-expand,
+.mean-container .mean-nav ul li a.mean-expand {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
   border: none !important;
 }
 

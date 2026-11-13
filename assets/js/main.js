@@ -1083,6 +1083,18 @@
       meanMenuContainer: '.offcanvas__menu-wrapper',
       meanMenuCloseSize: '36px',
     });
+    $(document).on('click', '.mean-nav li:has(ul) > a', function (e) {
+      e.preventDefault();
+      var $submenu = $(this).siblings('ul');
+      var $li = $(this).parent('li');
+      if ($submenu.length) {
+        $submenu.stop(true, true).slideToggle(280);
+        $li.toggleClass('menu-open');
+      }
+    });
+    if (location.protocol === 'file:') {
+      $('a[href="product/tattoo"], a[href="/product/tattoo"]').attr('href', 'tattoo.html');
+    }
     /////////////////////////////////////////////////////
   });
 
@@ -1175,7 +1187,11 @@
 
   /////////////////////////////////////////////////////
   // 32. Menu Text Animation
-  document.querySelectorAll('.menu-anim > li > a').forEach(button => button.innerHTML = '<div class="menu-text"><span>' + button.textContent.split('').join('</span><span>') + '</span></div>');
+  document.querySelectorAll('.menu-anim > li > a').forEach(button => {
+    if (!button.querySelector('.menu-text')) {
+      button.innerHTML = '<div class="menu-text"><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></div>';
+    }
+  });
 
   setTimeout(() => {
     var menu_text = document.querySelectorAll(".menu-text span")
