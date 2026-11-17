@@ -59,6 +59,21 @@
   status = 200
 
 [[redirects]]
+  from = "/product/helpdesk"
+  to = "/helpdesk.html"
+  status = 200
+
+[[redirects]]
+  from = "/product/helpdesk/"
+  to = "/helpdesk.html"
+  status = 200
+
+[[redirects]]
+  from = "/helpdesk"
+  to = "/helpdesk.html"
+  status = 200
+
+[[redirects]]
   from = "/product/tattoo"
   to = "/tattoo.html"
   status = 200

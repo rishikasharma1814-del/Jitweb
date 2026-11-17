@@ -5,6 +5,9 @@ import os
 PORT = 3000
 
 REWRITES = {
+    '/product/helpdesk': '/helpdesk.html',
+    '/product/helpdesk/': '/helpdesk.html',
+    '/helpdesk': '/helpdesk.html',
     '/product/tattoo': '/tattoo.html',
     '/product/tattoo/': '/tattoo.html',
     '/tattoo': '/tattoo.html',
@@ -24,12 +27,18 @@ class RewriteHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header('Location', '/product/tattoo')
             self.end_headers()
             return
+        # If user visits /helpdesk.html directly, redirect cleanly to /product/helpdesk
+        if raw_path == '/helpdesk.html':
+            self.send_response(302)
+            self.send_header('Location', '/product/helpdesk')
+            self.end_headers()
+            return
 
         if raw_path in REWRITES:
             self.path = REWRITES[raw_path]
         elif raw_path.startswith('/product/assets/'):
             self.path = raw_path.replace('/product/assets/', '/assets/')
-        elif raw_path.startswith('/product/') and not raw_path.startswith('/product/tattoo'):
+        elif raw_path.startswith('/product/') and not raw_path.startswith('/product/tattoo') and not raw_path.startswith('/product/helpdesk'):
             remainder = raw_path[len('/product/'):]
             target = '/' + remainder
             if not target.endswith('.html') and '.' not in target:
@@ -48,6 +57,7 @@ if __name__ == '__main__':
         print(f"==================================================")
         print(f" JIT Website Local Server Running!")
         print(f" Open in Browser: http://localhost:{PORT}")
+        print(f" IT Helpdesk:     http://localhost:{PORT}/product/helpdesk")
         print(f" Tattoo Studio:   http://localhost:{PORT}/product/tattoo")
         print(f" Coaching:        http://localhost:{PORT}/business-coaching.html")
         print(f" Press Ctrl+C to stop the server")

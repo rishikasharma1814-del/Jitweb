@@ -9,6 +9,8 @@ Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-R
  
 <IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteRule ^product/helpdesk/?$ helpdesk.html [L]
+RewriteRule ^helpdesk/?$ helpdesk.html [L]
 RewriteRule ^product/tattoo/?$ tattoo.html [L]
 RewriteRule ^tattoo/?$ tattoo.html [L]
 RewriteRule ^product/assets/(.*)$ assets/$1 [L]

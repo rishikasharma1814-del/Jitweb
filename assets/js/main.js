@@ -1093,6 +1093,7 @@
       }
     });
     if (location.protocol === 'file:') {
+      $('a[href="product/helpdesk"], a[href="/product/helpdesk"]').attr('href', 'helpdesk.html');
       $('a[href="product/tattoo"], a[href="/product/tattoo"]').attr('href', 'tattoo.html');
     }
     /////////////////////////////////////////////////////

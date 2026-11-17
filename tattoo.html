@@ -1296,7 +1296,8 @@ html,body{margin:0;min-height:100%;background:var(--tt-paper);color:var(--tt-ink
               <li>
                 <a href="javascript:void(0)">Product</a>
                 <ul class="sub-menu">
-                  <li><a href="/business-coaching.html#j26-overview">Coaching</a></li>
+                  <li><a href="/product/helpdesk">IT Helpdesk</a></li>
+                    <li><a href="/business-coaching.html#j26-overview">Coaching</a></li>
                   <li><a href="/product/tattoo">Tattoo</a></li>
                 </ul>
               </li>
@@ -3614,7 +3615,8 @@ const hash=location.hash.split('/');if(hash[0]==='#demo'&&['mobile','web','studi
           });
         }, 1000);
         if (location.protocol === 'file:') {
-          $('a[href="/product/tattoo"], a[href="/product/tattoo"]').attr('href', 'tattoo.html');
+          $('a[href="/product/helpdesk"]').attr('href', 'helpdesk.html');
+          $('a[href="/product/tattoo"]').attr('href', 'tattoo.html');
         }
       });
     })();

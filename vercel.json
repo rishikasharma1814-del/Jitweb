@@ -22,6 +22,18 @@
       "destination": "/contact.html"
     },
     {
+      "source": "/product/helpdesk",
+      "destination": "/helpdesk.html"
+    },
+    {
+      "source": "/product/helpdesk/",
+      "destination": "/helpdesk.html"
+    },
+    {
+      "source": "/helpdesk",
+      "destination": "/helpdesk.html"
+    },
+    {
       "source": "/product/tattoo",
       "destination": "/tattoo.html"
     },
